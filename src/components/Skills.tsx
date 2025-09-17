@@ -34,7 +34,7 @@ const Skills = () => {
     }
   ];
 
-  const languages = ["Python", "C++", "Rust", "Node.js", "SQL", "React", "Qt", "MATLAB"];
+  const languages = ["Python", "C++", "Rust", "Node.js", "JavaScript", "TypeScript", "SQL", "React", "Qt", "MATLAB", "R", "Bash/Shell", "HTML/CSS", "FastAPI", "Flask", "Express.js", "Vue.js", "Angular"];
   
   const certifications = [
     "MIT MicroMasters (Statistics & Data Science) — In Progress",

@@ -1,46 +1,9 @@
 import { ExternalLink, Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { getFeaturedProjects } from "@/data/projects";
 
 const Projects = () => {
-  const projects = [
-    {
-      title: "ClaimbAI Agent Platform",
-      summary: "Architected multi-agent system integrating Google ADK, n8n, FastAPI and Cloud Run; built secure Gmail/Calendar/Drive connectors and RAG-style retrieval.",
-      tech: ["Google ADK", "n8n", "FastAPI", "PostgreSQL", "Firebase", "Cloud Run"],
-      category: "Production System",
-      featured: true
-    },
-    {
-      title: "Advanced Sports Performance Analytics Platform",
-      summary: "Predictive models for player positioning and performance dashboards for coaching staff.",
-      tech: ["OpenCV", "PyTorch", "React", "JavaScript"],
-      category: "Computer Vision"
-    },
-    {
-      title: "AI Agent Ecosystem for Business Automation",
-      summary: "Multi-agent automation for Sales, HR, Marketing and Engineering with a central AI controller.",
-      tech: ["Node.js", "n8n", "RAG Patterns", "LangChain"],
-      category: "Agent Systems"
-    },
-    {
-      title: "Face Recognition Software",
-      summary: "High-performance face recognition using transfer learning with AlexNet; >90% accuracy.",
-      tech: ["MATLAB", "Transfer Learning", "AlexNet"],
-      category: "Deep Learning"
-    },
-    {
-      title: "Adaptive Language Learning Web App",
-      summary: "Firebase + Gemini API; LLM-curated lessons and conversational practice with progress tracking.",
-      tech: ["Firebase", "Gemini API", "React", "LLM Integration"],
-      category: "AI Application"
-    },
-    {
-      title: "Local Research AI Agent",
-      summary: "Personal assistant with local LLM integration, SERP API, and Claude Desktop MCP client for research automation.",
-      tech: ["Ollama", "n8n", "SERP API", "OpenAI APIs", "MCP"],
-      category: "Research Tools"
-    }
-  ];
+  const projects = getFeaturedProjects();
 
   return (
     <section id="projects" className="py-20 bg-background">
@@ -121,7 +84,11 @@ const Projects = () => {
 
           {/* View More */}
           <div className="text-center mt-12">
-            <Button variant="outline" className="px-8 py-3">
+            <Button 
+              variant="outline" 
+              className="px-8 py-3"
+              onClick={() => window.location.href = '/projects'}
+            >
               View All Projects
             </Button>
           </div>
