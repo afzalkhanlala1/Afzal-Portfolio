@@ -1,0 +1,55 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Afzal Khan",
+  "jobTitle": "AI Engineer & Agent Systems Architect",
+  "description": "AI Engineer specializing in production agent systems, RAG pipelines, and edge-optimized ML. Building real-world AI solutions at ClaimbAI.",
+  "email": "afzaljawadkhan@gmail.com",
+  "telephone": "+92 337 9755627",
+  "url": "https://afzalkhan.dev",
+  "sameAs": [
+    "http://www.linkedin.com/in/afzal-khan-939150192"
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Islamabad",
+    "addressCountry": "Pakistan"
+  },
+  "alumniOf": {
+    "@type": "CollegeOrUniversity",
+    "name": "National University of Sciences & Technology (NUST)",
+    "description": "BSc Mechatronics"
+  },
+  "hasCredential": [
+    {
+      "@type": "EducationalOccupationalCredential",
+      "name": "MIT MicroMasters in Statistics & Data Science",
+      "description": "In Progress"
+    },
+    {
+      "@type": "EducationalOccupationalCredential", 
+      "name": "McKinsey Forward Program"
+    },
+    {
+      "@type": "EducationalOccupationalCredential",
+      "name": "Google Data Analytics Certificate"
+    }
+  ],
+  "worksFor": {
+    "@type": "Organization",
+    "name": "ClaimbAI",
+    "description": "AI Engineer building agent-first ecosystems and production ML systems"
+  },
+  "knowsAbout": [
+    "Artificial Intelligence",
+    "Machine Learning",
+    "Agent Systems",
+    "RAG Systems",
+    "Computer Vision",
+    "MLOps",
+    "TensorRT",
+    "PyTorch",
+    "Python",
+    "Edge Computing"
+  ]
+}
