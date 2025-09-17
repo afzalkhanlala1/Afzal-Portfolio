@@ -121,7 +121,7 @@ const Contact = () => {
 
               {/* Quick Actions */}
               <div className="space-y-4">
-                <a href="/Afzal_Khan_Resume.pdf" download>
+                <a href={`${import.meta.env.BASE_URL}Afzal_Khan_Resume.pdf`} download>
                   <Button className="btn-hero w-full">
                     <Download className="w-4 h-4 mr-2" />
                     Download Full Resume

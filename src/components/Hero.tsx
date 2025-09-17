@@ -58,7 +58,7 @@ const Hero = () => {
             <ExternalLink className="mr-2 h-5 w-5" />
             View Projects
           </Button>
-          <a href="/Afzal_Khan_Resume.pdf" download>
+          <a href={`${import.meta.env.BASE_URL}Afzal_Khan_Resume.pdf`} download>
             <Button
               variant="outline"
               className="btn-hero-outline text-lg px-8 py-4"

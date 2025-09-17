@@ -15,7 +15,7 @@ const Projects = () => {
           <div className="flex items-center justify-between">
             <Button
               variant="ghost"
-              onClick={() => window.location.href = '/'}
+              onClick={() => window.location.href = import.meta.env.BASE_URL}
               className="flex items-center gap-2"
             >
               <ArrowLeft className="w-4 h-4" />
@@ -163,10 +163,10 @@ const Projects = () => {
                 Let's connect and explore how I can help bring your AI vision to life.
               </p>
               <div className="flex gap-4 justify-center">
-                <Button onClick={() => window.location.href = '/#contact'}>
+                <Button onClick={() => window.location.href = `${import.meta.env.BASE_URL}#contact`}>
                   Get In Touch
                 </Button>
-                <a href="/Afzal_Khan_Resume.pdf" download>
+                <a href={`${import.meta.env.BASE_URL}Afzal_Khan_Resume.pdf`} download>
                   <Button variant="outline">
                     Download Resume
                   </Button>

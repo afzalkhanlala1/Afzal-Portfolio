@@ -91,7 +91,7 @@ const Projects = () => {
             <Button 
               variant="outline" 
               className="px-8 py-3"
-              onClick={() => window.location.href = '/projects'}
+              onClick={() => window.location.href = `${import.meta.env.BASE_URL}projects`}
             >
               View All Projects
             </Button>

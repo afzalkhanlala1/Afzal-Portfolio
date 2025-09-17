@@ -69,7 +69,7 @@ const Navigation = () => {
               <SunMedium className="h-4 w-4 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
               <Moon className="absolute h-4 w-4 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
             </Button>
-            <a href="/Afzal_Khan_Resume.pdf" download>
+            <a href={`${import.meta.env.BASE_URL}Afzal_Khan_Resume.pdf`} download>
               <Button variant="outline" size="sm">
                 Download Resume
               </Button>
@@ -111,7 +111,7 @@ const Navigation = () => {
                 <Moon className="absolute h-4 w-4 ml-6 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
                 Toggle Theme
               </Button>
-              <a href="/Afzal_Khan_Resume.pdf" download className="pt-2">
+              <a href={`${import.meta.env.BASE_URL}Afzal_Khan_Resume.pdf`} download className="pt-2">
                 <Button variant="outline" size="sm" className="w-full">
                   Download Resume
                 </Button>
