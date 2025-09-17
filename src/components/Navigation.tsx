@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, Moon, SunMedium, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useTheme } from "next-themes";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { theme, setTheme, resolvedTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -57,6 +59,16 @@ const Navigation = () => {
                 {item.label}
               </button>
             ))}
+            <Button
+              variant="ghost"
+              size="sm"
+              aria-label="Toggle theme"
+              onClick={() => setTheme((resolvedTheme === "dark" ? "light" : "dark"))}
+              className="relative"
+            >
+              <SunMedium className="h-4 w-4 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+              <Moon className="absolute h-4 w-4 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+            </Button>
             <a href="/Afzal_Khan_Resume.pdf" download>
               <Button variant="outline" size="sm">
                 Download Resume
@@ -88,6 +100,17 @@ const Navigation = () => {
                   {item.label}
                 </button>
               ))}
+              <Button
+                variant="ghost"
+                size="sm"
+                aria-label="Toggle theme"
+                onClick={() => setTheme((resolvedTheme === "dark" ? "light" : "dark"))}
+                className="justify-start"
+              >
+                <SunMedium className="h-4 w-4 mr-2 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+                <Moon className="absolute h-4 w-4 ml-6 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+                Toggle Theme
+              </Button>
               <a href="/Afzal_Khan_Resume.pdf" download className="pt-2">
                 <Button variant="outline" size="sm" className="w-full">
                   Download Resume

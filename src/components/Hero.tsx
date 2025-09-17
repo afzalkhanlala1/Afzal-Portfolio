@@ -61,7 +61,7 @@ const Hero = () => {
           <a href="/Afzal_Khan_Resume.pdf" download>
             <Button
               variant="outline"
-              className="btn-hero-outline text-lg px-8 py-4 border-white text-white hover:bg-white hover:text-primary"
+              className="btn-hero-outline text-lg px-8 py-4"
             >
               <Download className="mr-2 h-5 w-5" />
               Download Résumé

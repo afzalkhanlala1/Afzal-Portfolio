@@ -86,10 +86,11 @@
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
 
+    /* Keep teal pop while improving contrast on dark */
     --accent: 176 100% 39%;
-    --accent-foreground: 222.2 84% 4.9%;
+    --accent-foreground: 210 40% 98%;
     --accent-hover: 176 100% 45%;
-    --accent-light: 176 100% 15%;
+    --accent-light: 176 50% 12%;
 
     --electric: 210 100% 60%;
     --electric-foreground: 222.2 84% 4.9%;
@@ -147,7 +148,7 @@
 
   /* Skill Pills */
   .skill-pill {
-    @apply bg-accent-light text-accent-foreground px-4 py-2 rounded-full text-sm font-medium hover:bg-accent hover:text-accent-foreground transition-all duration-200;
+    @apply bg-accent-light text-accent px-4 py-2 rounded-full text-sm font-medium hover:bg-accent hover:text-accent-foreground transition-all duration-200;
   }
 
   /* Gradient Text */

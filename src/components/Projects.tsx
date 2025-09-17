@@ -62,21 +62,25 @@ const Projects = () => {
 
                 {/* Action Buttons */}
                 <div className="flex gap-3">
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    className="flex-1 group-hover:border-accent group-hover:text-accent transition-colors duration-300"
-                  >
-                    <ExternalLink className="w-4 h-4 mr-2" />
-                    View Details
-                  </Button>
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    className="group-hover:text-accent transition-colors duration-300"
-                  >
-                    <Github className="w-4 h-4" />
-                  </Button>
+                  <a href="https://github.com/afzalkhanlala1" target="_blank" rel="noopener noreferrer" className="flex-1">
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      className="w-full group-hover:border-accent group-hover:text-accent transition-colors duration-300"
+                    >
+                      <ExternalLink className="w-4 h-4 mr-2" />
+                      View Details
+                    </Button>
+                  </a>
+                  <a href="https://github.com/afzalkhanlala1" target="_blank" rel="noopener noreferrer">
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      className="group-hover:text-accent transition-colors duration-300"
+                    >
+                      <Github className="w-4 h-4" />
+                    </Button>
+                  </a>
                 </div>
               </div>
             ))}
