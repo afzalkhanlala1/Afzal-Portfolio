@@ -47,7 +47,7 @@ export const projects: Project[] = [
   },
   {
     id: "real-time-tracking-system",
-    title: "Real-time Object Tracking System (COMCEPT)",
+    title: "Real-time Object Tracking System",
     summary: "Production-grade tracking using YOLOv9–v11, GOTURN, CSRT on NVIDIA Jetson Orin with <98% precision in dynamic environments.",
     description: "Engineered high-performance computer vision pipeline for industrial applications, achieving exceptional precision in dynamic environments. The system combines multiple tracking algorithms with GPU acceleration and ARM64 optimization for real-time performance on embedded systems.",
     tech: ["YOLOv9-v11", "GOTURN", "CSRT", "SAMURAI", "TensorRT", "C++", "Qt", "NVIDIA Jetson Orin", "OpenCV", "ARM64"],
