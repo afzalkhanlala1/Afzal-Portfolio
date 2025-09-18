@@ -29,7 +29,7 @@ const Hero = () => {
         {/* Profile Image */}
         <div className="mb-8 animate-scale-in">
           <img
-            src="/afzal-photo.jpg"
+            src={`${import.meta.env.BASE_URL}afzal-photo.jpg`}
             alt="Afzal Khan - AI Engineer"
             className="w-40 h-40 rounded-full mx-auto shadow-large border-4 border-accent/20 hover:border-accent/40 transition-all duration-300"
           />

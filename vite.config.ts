@@ -7,7 +7,7 @@ import path from "path";
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
   // IMPORTANT: Set this to your GitHub repo name for Pages
-  base: mode === "production" ? "/afzal-ai-craft/" : "/",
+  base: mode === "production" ? "/Afzal-Portfolio/" : "/",
   server: {
     host: "::",
     port: 8080,
