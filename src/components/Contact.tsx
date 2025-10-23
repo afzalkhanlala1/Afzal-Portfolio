@@ -14,20 +14,41 @@ const Contact = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    try {
+      // Submit form to FormSubmit
+      const form = e.currentTarget;
+      const formDataObj = new FormData(form);
+      
+      const response = await fetch("https://formsubmit.co/afzaljawadkhan@gmail.com", {
+        method: "POST",
+        body: formDataObj,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
 
-    toast({
-      title: "Message sent successfully!",
-      description: "Thank you for reaching out. I'll get back to you soon.",
-    });
-
-    setFormData({ name: "", email: "", message: "" });
-    setIsSubmitting(false);
+      if (response.ok) {
+        toast({
+          title: "Message sent successfully!",
+          description: "Thank you for reaching out. I'll get back to you soon.",
+        });
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        throw new Error("Failed to send message");
+      }
+    } catch (error) {
+      toast({
+        title: "Failed to send message",
+        description: "Please try again or contact me directly via email.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -147,6 +168,11 @@ const Contact = () => {
               </h3>
               
               <form onSubmit={handleSubmit} className="space-y-6">
+                {/* Hidden FormSubmit Configuration Fields */}
+                <input type="hidden" name="_subject" value="New Portfolio Contact Form Submission" />
+                <input type="hidden" name="_captcha" value="false" />
+                <input type="hidden" name="_template" value="box" />
+                
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-card-foreground mb-2">
                     Your Name
