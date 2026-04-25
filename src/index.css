@@ -2,114 +2,110 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Modern Portfolio Design System for Afzal Khan - AI Engineer */
+/* ──────────────────────────────────────────────────────────────────
+   Afzal Khan — Portfolio
+   Editorial / Technical Aesthetic
+   Paper · Ink · Vermilion
+   ────────────────────────────────────────────────────────────────── */
 
 @layer base {
   :root {
-    /* Primary Color Palette - Slate/Indigo Theme */
-    --background: 210 20% 98%;
-    --foreground: 222.2 84% 4.9%;
+    /* paper / ink palette */
+    --background: 38 33% 94%;        /* warm paper */
+    --foreground: 30 8% 8%;          /* near-black ink */
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --surface: 38 28% 90%;           /* sectioned paper */
+    --surface-2: 38 22% 87%;
+    --rule: 30 8% 80%;               /* hairline rule */
+    --rule-strong: 30 8% 25%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --card: 38 30% 97%;
+    --card-foreground: 30 8% 8%;
 
-    /* Primary - Deep Indigo */
-    --primary: 225 39% 23%;
-    --primary-foreground: 210 20% 98%;
-    --primary-hover: 225 39% 30%;
+    --popover: 38 30% 97%;
+    --popover-foreground: 30 8% 8%;
 
-    /* Secondary - Light Slate */
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --primary: 30 8% 8%;
+    --primary-foreground: 38 33% 94%;
+    --primary-hover: 30 8% 16%;
 
-    /* Muted - Soft Gray */
-    --muted: 220 13% 94%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --secondary: 38 28% 90%;
+    --secondary-foreground: 30 8% 8%;
 
-    /* Accent - Electric Teal */
-    --accent: 176 100% 39%;
-    --accent-foreground: 0 0% 100%;
-    --accent-hover: 176 100% 45%;
-    --accent-light: 176 100% 95%;
+    --muted: 38 22% 87%;
+    --muted-foreground: 30 5% 38%;
 
-    /* Electric Blue Variant */
-    --electric: 210 100% 50%;
-    --electric-foreground: 0 0% 100%;
-    --electric-hover: 210 100% 55%;
+    /* Vermilion — single bold accent */
+    --accent: 12 78% 48%;
+    --accent-foreground: 38 33% 96%;
+    --accent-hover: 12 78% 42%;
+    --accent-soft: 12 78% 92%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    /* Editorial highlight — warm parchment behind labels */
+    --electric: 38 65% 55%;
+    --electric-foreground: 30 8% 8%;
+    --electric-hover: 38 65% 50%;
 
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
-    --ring: 225 39% 23%;
+    --destructive: 0 70% 45%;
+    --destructive-foreground: 38 33% 96%;
 
-    --radius: 0.75rem;
+    --border: 30 8% 80%;
+    --input: 30 8% 80%;
+    --ring: 12 78% 48%;
 
-    /* Tech Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(225 39% 23%), hsl(225 39% 30%));
-    --gradient-accent: linear-gradient(135deg, hsl(176 100% 39%), hsl(176 100% 45%));
-    --gradient-hero: linear-gradient(135deg, hsl(225 39% 23%) 0%, hsl(176 100% 39%) 100%);
-    --gradient-subtle: linear-gradient(180deg, hsl(220 13% 98%) 0%, hsl(220 13% 94%) 100%);
+    --radius: 0.25rem;
 
-    /* Professional Shadows */
-    --shadow-soft: 0 1px 3px 0 hsl(225 39% 23% / 0.1), 0 1px 2px -1px hsl(225 39% 23% / 0.1);
-    --shadow-medium: 0 4px 6px -1px hsl(225 39% 23% / 0.1), 0 2px 4px -2px hsl(225 39% 23% / 0.1);
-    --shadow-large: 0 10px 15px -3px hsl(225 39% 23% / 0.1), 0 4px 6px -4px hsl(225 39% 23% / 0.1);
-    --shadow-glow: 0 0 20px hsl(176 100% 39% / 0.2);
-
-    /* Animations */
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --shadow-soft: 0 1px 0 0 hsl(30 8% 80%);
+    --shadow-medium: 0 1px 2px 0 hsl(30 12% 20% / 0.08);
+    --shadow-large: 0 24px 48px -16px hsl(30 12% 10% / 0.18);
+    --shadow-glow: 0 0 0 1px hsl(12 78% 48% / 0.35);
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background: 30 8% 7%;
+    --foreground: 38 28% 92%;
 
-    --card: 225 39% 8%;
-    --card-foreground: 210 40% 98%;
+    --surface: 30 8% 10%;
+    --surface-2: 30 8% 13%;
+    --rule: 30 6% 22%;
+    --rule-strong: 38 28% 80%;
 
-    --popover: 225 39% 8%;
-    --popover-foreground: 210 40% 98%;
+    --card: 30 8% 9%;
+    --card-foreground: 38 28% 92%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-    --primary-hover: 210 40% 90%;
+    --popover: 30 8% 9%;
+    --popover-foreground: 38 28% 92%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --primary: 38 28% 92%;
+    --primary-foreground: 30 8% 7%;
+    --primary-hover: 38 28% 86%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --secondary: 30 8% 13%;
+    --secondary-foreground: 38 28% 92%;
 
-    /* Keep teal pop while improving contrast on dark */
-    --accent: 176 100% 39%;
-    --accent-foreground: 210 40% 98%;
-    --accent-hover: 176 100% 45%;
-    --accent-light: 176 50% 12%;
+    --muted: 30 8% 13%;
+    --muted-foreground: 30 5% 62%;
 
-    --electric: 210 100% 60%;
-    --electric-foreground: 222.2 84% 4.9%;
-    --electric-hover: 210 100% 65%;
+    --accent: 12 82% 56%;
+    --accent-foreground: 30 8% 7%;
+    --accent-hover: 12 82% 62%;
+    --accent-soft: 12 60% 18%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --electric: 38 70% 65%;
+    --electric-foreground: 30 8% 7%;
+    --electric-hover: 38 70% 70%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 38 28% 92%;
 
-    /* Dark Mode Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(225 39% 15%), hsl(225 39% 20%));
-    --gradient-accent: linear-gradient(135deg, hsl(176 100% 39%), hsl(176 100% 45%));
-    --gradient-hero: linear-gradient(135deg, hsl(225 39% 8%) 0%, hsl(176 100% 20%) 100%);
-    --gradient-subtle: linear-gradient(180deg, hsl(225 39% 8%) 0%, hsl(225 39% 6%) 100%);
+    --border: 30 6% 22%;
+    --input: 30 6% 22%;
+    --ring: 12 82% 56%;
 
-    --shadow-glow: 0 0 20px hsl(176 100% 39% / 0.3);
+    --shadow-soft: 0 1px 0 0 hsl(30 6% 22%);
+    --shadow-medium: 0 1px 2px 0 hsl(0 0% 0% / 0.5);
+    --shadow-large: 0 24px 48px -16px hsl(0 0% 0% / 0.6);
+    --shadow-glow: 0 0 0 1px hsl(12 82% 56% / 0.4);
   }
 }
 
@@ -118,75 +114,229 @@
     @apply border-border;
   }
 
-  body {
-    @apply bg-background text-foreground font-sans antialiased;
-  }
-
   html {
     scroll-behavior: smooth;
+    /* selection accent */
+    --tw-prose-body: hsl(var(--foreground));
+  }
+
+  ::selection {
+    background: hsl(var(--accent));
+    color: hsl(var(--accent-foreground));
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+    font-feature-settings: "ss01", "ss02", "cv11";
+    font-weight: 400;
+    line-height: 1.6;
+  }
+
+  /* Editorial paper grain — barely visible */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.06 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    opacity: 0.55;
+    mix-blend-mode: multiply;
+  }
+
+  .dark body::before {
+    opacity: 0.35;
+    mix-blend-mode: screen;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: "Instrument Serif", "Iowan Old Style", Georgia, serif;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    line-height: 1.04;
+  }
+
+  /* tabular numerals everywhere meaningful */
+  .tabular {
+    font-variant-numeric: tabular-nums;
   }
 }
 
 @layer components {
-  /* Hero Buttons */
-  .btn-hero {
-    @apply bg-gradient-to-r from-primary to-primary-hover text-primary-foreground px-8 py-4 rounded-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105;
+  /* ── Typography roles ──────────────────────────────── */
+  .font-display {
+    font-family: "Instrument Serif", "Iowan Old Style", Georgia, serif;
+    font-weight: 400;
+    letter-spacing: -0.015em;
   }
 
-  .btn-hero-outline {
-    @apply border-2 border-accent text-accent px-8 py-4 rounded-lg font-semibold hover:bg-accent hover:text-accent-foreground transition-all duration-300 hover:scale-105 backdrop-blur-sm;
+  .font-mono-tech {
+    font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-feature-settings: "ss02", "cv02";
   }
 
-  /* Project Cards */
-  .project-card {
-    @apply bg-card rounded-xl p-6 shadow-soft hover:shadow-large transition-all duration-300 hover:scale-[1.02] border border-border/50;
+  /* ── Editorial section header ─────────────────────── */
+  .section-eyebrow {
+    @apply font-mono-tech text-[11px] tracking-[0.18em] uppercase text-muted-foreground inline-flex items-center gap-3;
   }
 
-  .project-card:hover {
-    box-shadow: var(--shadow-glow), var(--shadow-large);
+  .section-eyebrow::before {
+    content: "";
+    width: 28px;
+    height: 1px;
+    background: hsl(var(--accent));
   }
 
-  /* Skill Pills */
-  .skill-pill {
-    @apply bg-accent-light text-accent px-4 py-2 rounded-full text-sm font-medium hover:bg-accent hover:text-accent-foreground transition-all duration-200;
+  .section-title {
+    @apply font-display text-[clamp(2.5rem,6vw,5rem)] leading-[0.95] tracking-tight;
   }
 
-  /* Gradient Text */
-  .gradient-text {
-    @apply bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
+  /* ── Hairline rules ──────────────────────────────── */
+  .rule {
+    border-top: 1px solid hsl(var(--rule));
+  }
+  .rule-bottom {
+    border-bottom: 1px solid hsl(var(--rule));
   }
 
-  /* Navigation Link Animation */
-  .nav-link {
-    @apply relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-accent after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left;
+  /* ── Buttons ─────────────────────────────────────── */
+  .btn-ink {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 font-mono-tech text-[12px] tracking-[0.18em] uppercase
+           bg-foreground text-background border border-foreground
+           transition-[transform,background,color] duration-200
+           hover:bg-accent hover:border-accent hover:text-accent-foreground
+           active:translate-y-[1px];
+  }
+  .btn-ghost-ink {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 font-mono-tech text-[12px] tracking-[0.18em] uppercase
+           bg-transparent text-foreground border border-foreground/30
+           transition-[transform,background,color,border-color] duration-200
+           hover:border-foreground hover:bg-foreground hover:text-background
+           active:translate-y-[1px];
   }
 
-  /* Experience Timeline */
-  .timeline-item {
-    @apply relative pl-8 pb-8 border-l-2 border-accent/20 last:border-l-0;
+  /* ── Tag / chip ──────────────────────────────────── */
+  .tag {
+    @apply inline-flex items-center font-mono-tech text-[10.5px] tracking-[0.14em] uppercase
+           text-muted-foreground border border-border px-2.5 py-1
+           transition-colors duration-200 hover:text-foreground hover:border-foreground;
+  }
+  .tag-accent {
+    @apply tag border-accent/40 text-accent hover:bg-accent hover:text-accent-foreground hover:border-accent;
   }
 
-  .timeline-item::before {
-    @apply absolute w-4 h-4 bg-accent rounded-full -left-2 top-2 border-4 border-background;
-    content: '';
+  /* ── Index numerals (editorial figure numbers) ───── */
+  .index-num {
+    @apply font-mono-tech text-[11px] tracking-[0.18em] text-muted-foreground;
   }
 
-  /* Floating Animation */
-  .float-animation {
-    animation: float 6s ease-in-out infinite;
+  /* ── Marquee ─────────────────────────────────────── */
+  .marquee {
+    display: flex;
+    gap: 3rem;
+    overflow: hidden;
+    mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  }
+  .marquee-track {
+    display: flex;
+    gap: 3rem;
+    flex-shrink: 0;
+    animation: marquee 38s linear infinite;
+  }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-100%); }
   }
 
-  @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-20px); }
+  /* ── Grid backdrop ───────────────────────────────── */
+  .grid-backdrop {
+    background-image:
+      linear-gradient(to right, hsl(var(--rule)) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(var(--rule)) 1px, transparent 1px);
+    background-size: 96px 96px;
+    mask-image: radial-gradient(ellipse at center, black 35%, transparent 75%);
   }
 
-  /* Smooth Reveal */
-  .reveal-up {
-    @apply opacity-0 translate-y-8 transition-all duration-700;
+  /* ── Reveal ─────────────────────────────────────── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(14px);
+    animation: reveal 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+  }
+  @keyframes reveal {
+    to { opacity: 1; transform: translateY(0); }
   }
 
-  .reveal-up.revealed {
-    @apply opacity-100 translate-y-0;
+  /* ── Project list row hover ─────────────────────── */
+  .row-link {
+    position: relative;
+    display: grid;
+    align-items: baseline;
+    transition: padding 0.5s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  .row-link::after {
+    content: "";
+    position: absolute;
+    inset: auto 0 -1px 0;
+    height: 1px;
+    background: hsl(var(--rule));
+    transition: background 0.3s ease;
+  }
+  .row-link:hover::after { background: hsl(var(--accent)); }
+  .row-link:hover .row-arrow { transform: translate(4px, -4px); }
+  .row-arrow { transition: transform 0.4s cubic-bezier(0.2, 0.7, 0.2, 1); }
+
+  /* ── Hero glyph (initials) ───────────────────────── */
+  .glyph {
+    font-family: "Instrument Serif", serif;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 0.85;
+    letter-spacing: -0.04em;
+  }
+
+  /* ── Underline link ──────────────────────────────── */
+  .ul-link {
+    position: relative;
+    display: inline-block;
+    color: hsl(var(--foreground));
+    transition: color 0.2s ease;
+  }
+  .ul-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -2px;
+    height: 1px;
+    background: currentColor;
+    transform: scaleX(1);
+    transform-origin: right;
+    transition: transform 0.45s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  .ul-link:hover { color: hsl(var(--accent)); }
+  .ul-link:hover::after { transform: scaleX(0); transform-origin: left; }
+
+  /* ── Disc bullet ─────────────────────────────────── */
+  .disc::before {
+    content: "";
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    margin-right: 0.75rem;
+    margin-bottom: 2px;
+    background: hsl(var(--accent));
+    transform: translateY(-2px);
   }
 }
+
+/* ── slow blink for status dot ─────────────────────── */
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+.pulse-soft { animation: pulse-soft 2.4s ease-in-out infinite; }
+
+/* keep relative children above the body grain */
+main, nav, footer { position: relative; z-index: 1; }

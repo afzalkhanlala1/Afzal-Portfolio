@@ -1,126 +1,139 @@
 import { Bot, Brain, Cloud, Code, Database, Zap } from "lucide-react";
 
+const CATEGORIES = [
+  {
+    icon: Brain,
+    title: "AI & LLMs",
+    skills: ["LangChain", "LlamaIndex", "RAG", "Local SLMs (Ollama)", "Hugging Face", "Whisper"],
+  },
+  {
+    icon: Bot,
+    title: "Agents & Integrations",
+    skills: ["Google ADK", "n8n", "Zapier", "OAuth Connectors", "Multi-Agent", "Workflow Auto"],
+  },
+  {
+    icon: Code,
+    title: "ML / DL Frameworks",
+    skills: ["PyTorch", "TensorFlow", "YOLO v9–v11", "OpenCV", "scikit-learn", "Transfer Learning"],
+  },
+  {
+    icon: Zap,
+    title: "Edge & Optimization",
+    skills: ["TensorRT", "ONNX", "Quantization", "Jetson Orin", "GPU Tuning", "Real-time Inference"],
+  },
+  {
+    icon: Cloud,
+    title: "Cloud & MLOps",
+    skills: ["Docker", "Kubernetes", "Cloud Run", "Firebase Fns", "CI/CD", "Monitoring"],
+  },
+  {
+    icon: Database,
+    title: "Data & Backend",
+    skills: ["PostgreSQL", "Vector DBs", "ETL", "FastAPI", "Node.js", "AWS Glue"],
+  },
+];
+
+const LANGUAGES = [
+  "Python", "C++", "Rust", "TypeScript", "JavaScript", "SQL", "React",
+  "Node.js", "Qt", "MATLAB", "R", "Bash", "FastAPI", "Flask", "Express", "Vue", "Angular",
+];
+
+const CERTIFICATIONS = [
+  "MIT MicroMasters · Statistics & Data Science (in progress)",
+  "McKinsey Forward Program",
+  "Google Data Analytics Certificate",
+  "Tableau Data Analysis Certification",
+  "Advanced SQL · Udacity",
+  "UI / UX Design · CalArts",
+  "CS50 — Computer Science",
+];
+
 const Skills = () => {
-  const skillCategories = [
-    {
-      icon: Brain,
-      title: "AI & LLMs",
-      skills: ["LangChain", "LlamaIndex", "RAG Systems", "Local SLMs (Ollama)", "Hugging Face", "Whisper"]
-    },
-    {
-      icon: Bot,
-      title: "Agents & Integrations",
-      skills: ["Google ADK", "n8n", "Zapier", "OAuth Connectors", "Multi-Agent Systems", "Workflow Automation"]
-    },
-    {
-      icon: Code,
-      title: "ML/DL Frameworks",
-      skills: ["PyTorch", "TensorFlow", "YOLO (v9-v11)", "OpenCV", "scikit-learn", "Transfer Learning"]
-    },
-    {
-      icon: Zap,
-      title: "Edge & Optimization",
-      skills: ["TensorRT", "ONNX", "Model Quantization", "Jetson Orin", "GPU Optimization", "Real-time Inference"]
-    },
-    {
-      icon: Cloud,
-      title: "Cloud & MLOps",
-      skills: ["Docker", "Kubernetes", "Cloud Run", "Firebase Functions", "CI/CD", "Monitoring"]
-    },
-    {
-      icon: Database,
-      title: "Data & Backend",
-      skills: ["PostgreSQL", "Vector DBs", "ETL Pipelines", "FastAPI", "Node.js", "AWS Glue"]
-    }
-  ];
-
-  const languages = ["Python", "C++", "Rust", "Node.js", "JavaScript", "TypeScript", "SQL", "React", "Qt", "MATLAB", "R", "Bash/Shell", "HTML/CSS", "FastAPI", "Flask", "Express.js", "Vue.js", "Angular"];
-  
-  const certifications = [
-    "MIT MicroMasters (Statistics & Data Science) — In Progress",
-    "McKinsey Forward Program",
-    "Google Data Analytics Certificate", 
-    "Tableau Data Analysis Certification",
-    "Advanced SQL (Udacity)",
-    "UI/UX Design (CalArts)",
-    "CS50 Computer Science"
-  ];
-
   return (
-    <section id="skills" className="py-20 bg-background">
-      <div className="container mx-auto px-6">
-        <div className="max-w-7xl mx-auto">
-          {/* Section Header */}
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 gradient-text">
-              Technical Expertise
-            </h2>
-            <div className="w-24 h-1 bg-accent mx-auto mb-8"></div>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              Full-stack AI engineering with expertise spanning from edge optimization to cloud deployment.
-            </p>
+    <section id="skills" className="relative py-28 md:py-36 rule-bottom">
+      <div className="container">
+        {/* Header */}
+        <div className="grid grid-cols-12 gap-x-6 lg:gap-x-10 mb-16 md:mb-24">
+          <div className="col-span-12 md:col-span-3">
+            <div className="section-eyebrow">05 / Stack</div>
           </div>
+          <h2 className="col-span-12 md:col-span-9 section-title">
+            Tools I reach for —
+            <span className="italic text-accent"> by problem.</span>
+          </h2>
+        </div>
 
-          {/* Skills Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-            {skillCategories.map((category, index) => (
-              <div
-                key={index}
-                className="project-card group"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <div className="flex items-center mb-4">
-                  <category.icon className="w-6 h-6 text-accent mr-3 group-hover:text-electric transition-colors duration-300" />
-                  <h3 className="text-lg font-semibold text-card-foreground">{category.title}</h3>
-                </div>
-                <div className="flex flex-wrap gap-2">
-                  {category.skills.map((skill, skillIndex) => (
-                    <span key={skillIndex} className="skill-pill text-xs">
-                      {skill}
-                    </span>
-                  ))}
-                </div>
+        {/* Category grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-border border border-border">
+          {CATEGORIES.map((cat, i) => (
+            <div
+              key={cat.title}
+              className="bg-card p-7 md:p-8 group"
+            >
+              <div className="flex items-start justify-between mb-6">
+                <cat.icon
+                  className="h-5 w-5 text-accent"
+                  strokeWidth={1.5}
+                />
+                <span className="font-mono text-[10.5px] tracking-[0.18em] text-muted-foreground tabular">
+                  / {String(i + 1).padStart(2, "0")}
+                </span>
               </div>
-            ))}
-          </div>
-
-          {/* Languages & Tools */}
-          <div className="grid lg:grid-cols-2 gap-12">
-            {/* Programming Languages */}
-            <div className="project-card">
-              <h3 className="text-xl font-semibold text-card-foreground mb-4 flex items-center">
-                <Code className="w-5 h-5 text-accent mr-2" />
-                Programming Languages & Frameworks
+              <h3 className="font-display text-2xl mb-5 group-hover:text-accent transition-colors">
+                {cat.title}
               </h3>
-              <div className="flex flex-wrap gap-3">
-                {languages.map((lang, index) => (
-                  <span
-                    key={index}
-                    className="bg-gradient-accent text-accent-foreground px-4 py-2 rounded-lg font-medium hover:shadow-glow transition-all duration-300"
-                  >
-                    {lang}
-                  </span>
+              <ul className="flex flex-wrap gap-2">
+                {cat.skills.map((s) => (
+                  <li key={s} className="tag">{s}</li>
                 ))}
-              </div>
+              </ul>
             </div>
+          ))}
+        </div>
 
-            {/* Education & Certifications */}
-            <div className="project-card">
-              <h3 className="text-xl font-semibold text-card-foreground mb-4">
-                Education & Certifications
-              </h3>
-              <div className="space-y-3">
-                <div className="border-l-4 border-accent pl-4">
-                  <h4 className="font-semibold text-accent">BSc Mechatronics</h4>
-                  <p className="text-sm text-muted-foreground">National University of Sciences & Technology (NUST)</p>
-                </div>
-                {certifications.map((cert, index) => (
-                  <div key={index} className="flex items-start text-sm text-muted-foreground">
-                    <div className="w-2 h-2 bg-accent rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                    {cert}
-                  </div>
-                ))}
+        {/* Languages + Certs */}
+        <div className="mt-20 grid grid-cols-12 gap-x-6 lg:gap-x-10 gap-y-12">
+          {/* Languages */}
+          <div className="col-span-12 lg:col-span-7">
+            <div className="section-eyebrow mb-6">Languages & Frameworks</div>
+            <ul className="flex flex-wrap gap-3">
+              {LANGUAGES.map((l) => (
+                <li
+                  key={l}
+                  className="font-mono text-[12px] tracking-[0.04em] uppercase border border-border px-3 py-2 hover:border-accent hover:text-accent transition-colors"
+                >
+                  {l}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Education + Certs */}
+          <div className="col-span-12 lg:col-span-5">
+            <div className="section-eyebrow mb-6">Education & Certifications</div>
+            <div className="rule pt-6">
+              <div className="flex items-baseline justify-between gap-4 mb-1">
+                <h3 className="font-display text-2xl md:text-[28px] leading-tight">
+                  BSc Mechatronics
+                </h3>
+                <span className="font-mono text-[10.5px] tracking-[0.18em] uppercase text-muted-foreground shrink-0">
+                  NUST
+                </span>
               </div>
+              <p className="text-sm text-muted-foreground mb-6">
+                National University of Sciences & Technology
+              </p>
+              <ul className="space-y-3">
+                {CERTIFICATIONS.map((c) => (
+                  <li
+                    key={c}
+                    className="flex items-baseline gap-3 text-sm text-foreground/80"
+                  >
+                    <span className="font-mono text-[10px] text-accent shrink-0 tabular pt-1">+</span>
+                    <span>{c}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>

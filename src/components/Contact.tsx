@@ -1,247 +1,247 @@
 import { useState } from "react";
-import { Mail, Phone, MapPin, Send, Linkedin, Download } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
+import { ArrowUpRight, Send } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 const Contact = () => {
   const { toast } = useToast();
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: ""
-  });
+  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
-
     try {
-      // Submit form to FormSubmit
       const form = e.currentTarget;
       const formDataObj = new FormData(form);
-      
-      const response = await fetch("https://formsubmit.co/afzaljawadkhan@gmail.com", {
-        method: "POST",
-        body: formDataObj,
-        headers: {
-          'Accept': 'application/json'
+      const response = await fetch(
+        "https://formsubmit.co/afzaljawadkhan@gmail.com",
+        {
+          method: "POST",
+          body: formDataObj,
+          headers: { Accept: "application/json" },
         }
-      });
-
+      );
       if (response.ok) {
         toast({
-          title: "Message sent successfully!",
-          description: "Thank you for reaching out. I'll get back to you soon.",
+          title: "Message sent",
+          description: "Thanks — I'll get back to you shortly.",
         });
         setFormData({ name: "", email: "", message: "" });
       } else {
         throw new Error("Failed to send message");
       }
-    } catch (error) {
+    } catch {
       toast({
-        title: "Failed to send message",
-        description: "Please try again or contact me directly via email.",
-        variant: "destructive"
+        title: "Couldn't send message",
+        description: "Please try again, or reach me directly via email.",
+        variant: "destructive",
       });
     } finally {
       setIsSubmitting(false);
     }
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData(prev => ({
-      ...prev,
-      [e.target.name]: e.target.value
-    }));
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
+  const detailRows: { k: string; v: string; href?: string; ext?: boolean }[] = [
+    { k: "Email", v: "afzaljawadkhan@gmail.com", href: "mailto:afzaljawadkhan@gmail.com" },
+    { k: "Phone", v: "+92 337 9755627", href: "tel:+923379755627" },
+    {
+      k: "LinkedIn",
+      v: "in/afzal-khan-939150192",
+      href: "http://www.linkedin.com/in/afzal-khan-939150192",
+      ext: true,
+    },
+    { k: "Based", v: "Islamabad, Pakistan" },
+    { k: "Time-zone", v: "GMT+5 (PKT)" },
+    { k: "Status", v: "Open to roles & collaborations" },
+  ];
+
   return (
-    <section id="contact" className="py-20 bg-gradient-subtle">
-      <div className="container mx-auto px-6">
-        <div className="max-w-6xl mx-auto">
-          {/* Section Header */}
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 gradient-text">
-              Let's Connect
-            </h2>
-            <div className="w-24 h-1 bg-accent mx-auto mb-8"></div>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              Ready to build something amazing together? Let's discuss your AI/ML project or explore collaboration opportunities.
+    <section id="contact" className="relative py-28 md:py-36 bg-surface">
+      <div className="container">
+        {/* Header */}
+        <div className="grid grid-cols-12 gap-x-6 lg:gap-x-10 mb-16 md:mb-24">
+          <div className="col-span-12 md:col-span-3">
+            <div className="section-eyebrow">06 / Contact</div>
+          </div>
+          <h2 className="col-span-12 md:col-span-9 section-title">
+            Have a system worth shipping?
+            <br />
+            <span className="italic text-accent">Let's talk.</span>
+          </h2>
+        </div>
+
+        <div className="grid grid-cols-12 gap-x-6 lg:gap-x-10 gap-y-16">
+          {/* Left — details ledger */}
+          <div className="col-span-12 lg:col-span-5">
+            <p className="font-display text-2xl md:text-[28px] leading-[1.3] max-w-[36ch] mb-10">
+              Whether it's an AI engineering role, agent-systems consulting,
+              or a tough ML pipeline you need stitched together — I'd love
+              to hear about it.
             </p>
-          </div>
 
-          <div className="grid lg:grid-cols-2 gap-12">
-            {/* Contact Information */}
-            <div className="space-y-8">
-              <div>
-                <h3 className="text-2xl font-semibold text-card-foreground mb-6">
-                  Get in Touch
-                </h3>
-                <p className="text-muted-foreground mb-8 leading-relaxed">
-                  Whether you're looking to hire an AI engineer, need consulting on ML systems, 
-                  or want to collaborate on cutting-edge projects, I'd love to hear from you.
-                </p>
-              </div>
-
-              {/* Contact Details */}
-              <div className="space-y-6">
-                <div className="flex items-center group">
-                  <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mr-4 group-hover:bg-accent/20 transition-colors duration-300">
-                    <Mail className="w-5 h-5 text-accent" />
-                  </div>
-                  <div>
-                    <p className="font-medium text-card-foreground">Email</p>
-                    <a href="mailto:afzaljawadkhan@gmail.com" className="text-muted-foreground hover:text-accent transition-colors">
-                      afzaljawadkhan@gmail.com
-                    </a>
-                  </div>
-                </div>
-
-                <div className="flex items-center group">
-                  <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mr-4 group-hover:bg-accent/20 transition-colors duration-300">
-                    <Phone className="w-5 h-5 text-accent" />
-                  </div>
-                  <div>
-                    <p className="font-medium text-card-foreground">Phone</p>
-                    <a href="tel:+923379755627" className="text-muted-foreground hover:text-accent transition-colors">
-                      +92 337 9755627
-                    </a>
-                  </div>
-                </div>
-
-                <div className="flex items-center group">
-                  <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mr-4 group-hover:bg-accent/20 transition-colors duration-300">
-                    <MapPin className="w-5 h-5 text-accent" />
-                  </div>
-                  <div>
-                    <p className="font-medium text-card-foreground">Location</p>
-                    <p className="text-muted-foreground">Islamabad, Pakistan</p>
-                  </div>
-                </div>
-
-                <div className="flex items-center group">
-                  <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mr-4 group-hover:bg-accent/20 transition-colors duration-300">
-                    <Linkedin className="w-5 h-5 text-accent" />
-                  </div>
-                  <div>
-                    <p className="font-medium text-card-foreground">LinkedIn</p>
-                    <a 
-                      href="http://www.linkedin.com/in/afzal-khan-939150192" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="text-muted-foreground hover:text-accent transition-colors"
-                    >
-                      Connect on LinkedIn
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-              {/* Quick Actions */}
-              <div className="space-y-4">
-                <a href={`${import.meta.env.BASE_URL}Afzal_Khan_Resume.pdf`} download>
-                  <Button className="btn-hero w-full">
-                    <Download className="w-4 h-4 mr-2" />
-                    Download Full Resume
-                  </Button>
-                </a>
-                <a 
-                  href="http://www.linkedin.com/in/afzal-khan-939150192" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
+            <dl className="border-t border-border">
+              {detailRows.map((row) => (
+                <div
+                  key={row.k}
+                  className="grid grid-cols-12 gap-3 py-4 border-b border-border items-baseline"
                 >
-                  <Button variant="outline" className="w-full border-accent text-accent hover:bg-accent hover:text-accent-foreground">
-                    <Linkedin className="w-4 h-4 mr-2" />
-                    View LinkedIn Profile
-                  </Button>
-                </a>
-              </div>
-            </div>
-
-            {/* Contact Form */}
-            <div className="project-card">
-              <h3 className="text-2xl font-semibold text-card-foreground mb-6">
-                Send a Message
-              </h3>
-              
-              <form onSubmit={handleSubmit} className="space-y-6">
-                {/* Hidden FormSubmit Configuration Fields */}
-                <input type="hidden" name="_subject" value="New Portfolio Contact Form Submission" />
-                <input type="hidden" name="_captcha" value="false" />
-                <input type="hidden" name="_template" value="box" />
-                
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-card-foreground mb-2">
-                    Your Name
-                  </label>
-                  <Input
-                    id="name"
-                    name="name"
-                    type="text"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                    placeholder="Enter your full name"
-                    className="w-full"
-                  />
+                  <dt className="col-span-4 font-mono text-[10.5px] tracking-[0.18em] uppercase text-muted-foreground">
+                    {row.k}
+                  </dt>
+                  <dd className="col-span-8 font-mono text-[13px] tracking-[0.02em] text-foreground">
+                    {row.href ? (
+                      <a
+                        href={row.href}
+                        target={row.ext ? "_blank" : undefined}
+                        rel={row.ext ? "noopener noreferrer" : undefined}
+                        className="ul-link"
+                      >
+                        {row.v}
+                      </a>
+                    ) : (
+                      row.v
+                    )}
+                  </dd>
                 </div>
+              ))}
+            </dl>
 
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-card-foreground mb-2">
-                    Email Address
-                  </label>
-                  <Input
-                    id="email"
-                    name="email"
-                    type="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                    placeholder="your.email@company.com"
-                    className="w-full"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-card-foreground mb-2">
-                    Message
-                  </label>
-                  <Textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    required
-                    placeholder="Tell me about your project, role opportunity, or collaboration idea..."
-                    rows={5}
-                    className="w-full resize-none"
-                  />
-                </div>
-
-                <Button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="btn-hero w-full"
-                >
-                  {isSubmitting ? (
-                    "Sending..."
-                  ) : (
-                    <>
-                      <Send className="w-4 h-4 mr-2" />
-                      Send Message
-                    </>
-                  )}
-                </Button>
-              </form>
+            <div className="mt-10 flex flex-wrap gap-3">
+              <a
+                href={`${import.meta.env.BASE_URL}Afzal_Khan_Resume.pdf`}
+                download
+                className="btn-ink"
+              >
+                Download Résumé
+                <ArrowUpRight className="h-4 w-4" />
+              </a>
+              <a
+                href="http://www.linkedin.com/in/afzal-khan-939150192"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-ghost-ink"
+              >
+                LinkedIn
+              </a>
             </div>
           </div>
+
+          {/* Right — form */}
+          <form
+            onSubmit={handleSubmit}
+            className="col-span-12 lg:col-span-7 lg:pl-10 lg:border-l lg:border-border flex flex-col"
+          >
+            <div className="section-eyebrow mb-8">Send a message</div>
+
+            <input
+              type="hidden"
+              name="_subject"
+              value="New portfolio message"
+            />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_template" value="box" />
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-border border border-border mb-px">
+              <Field
+                label="Name"
+                name="name"
+                type="text"
+                placeholder="Your full name"
+                value={formData.name}
+                onChange={handleChange}
+                required
+              />
+              <Field
+                label="Email"
+                name="email"
+                type="email"
+                placeholder="you@company.com"
+                value={formData.email}
+                onChange={handleChange}
+                required
+              />
+            </div>
+
+            <div className="border border-border bg-card p-6">
+              <label
+                htmlFor="message"
+                className="block font-mono text-[10.5px] tracking-[0.2em] uppercase text-muted-foreground mb-2"
+              >
+                Message
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                required
+                rows={6}
+                placeholder="Project, opportunity, idea — give me a paragraph or two."
+                className="w-full bg-transparent border-0 outline-none resize-none text-foreground placeholder:text-muted-foreground/60 text-[15px] leading-relaxed"
+              />
+            </div>
+
+            <div className="mt-8 flex items-center justify-between">
+              <span className="font-mono text-[11px] tracking-[0.16em] uppercase text-muted-foreground">
+                Replies typically within 24h
+              </span>
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="btn-ink disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {isSubmitting ? "Sending…" : "Send message"}
+                {!isSubmitting && <Send className="h-4 w-4" />}
+              </button>
+            </div>
+          </form>
         </div>
       </div>
     </section>
   );
 };
+
+const Field = ({
+  label,
+  name,
+  type,
+  placeholder,
+  value,
+  onChange,
+  required,
+}: {
+  label: string;
+  name: string;
+  type: string;
+  placeholder: string;
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  required?: boolean;
+}) => (
+  <div className="bg-card p-6">
+    <label
+      htmlFor={name}
+      className="block font-mono text-[10.5px] tracking-[0.2em] uppercase text-muted-foreground mb-2"
+    >
+      {label}
+    </label>
+    <input
+      id={name}
+      name={name}
+      type={type}
+      placeholder={placeholder}
+      value={value}
+      onChange={onChange}
+      required={required}
+      className="w-full bg-transparent border-0 outline-none text-foreground placeholder:text-muted-foreground/60 text-[15px]"
+    />
+  </div>
+);
 
 export default Contact;
