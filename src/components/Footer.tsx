@@ -7,7 +7,7 @@ const Footer = () => {
     { label: "Email", href: "mailto:afzaljawadkhan@gmail.com", ext: false },
     { label: "LinkedIn", href: "http://www.linkedin.com/in/afzal-khan-939150192", ext: true },
     { label: "GitHub", href: "https://github.com/afzalkhanlala1", ext: true },
-    { label: "Résumé", href: `${import.meta.env.BASE_URL}Afzal_Khan_Resume.pdf`, ext: false, dl: true },
+    { label: "Résumé", href: `${import.meta.env.BASE_URL}Afzal_Khans_Resume.pdf`, ext: false, dl: true },
   ];
 
   return (
@@ -89,7 +89,7 @@ const Footer = () => {
           <span>© {year} Afzal Khan · All systems set in IBM Plex & Instrument Serif</span>
           <span className="flex items-center gap-2">
             <span className="h-1.5 w-1.5 bg-accent" />
-            v3 · Editorial release
+            v4 · 2026 edition
           </span>
         </div>
       </div>

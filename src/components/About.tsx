@@ -1,25 +1,25 @@
-import { Bot, Brain, Code, Cpu } from "lucide-react";
+import { AudioLines, Bot, Database, Workflow } from "lucide-react";
 
 const PILLARS = [
   {
     icon: Bot,
-    title: "Agent Systems",
-    body: "Multi-agent ecosystems with secure connectors, OAuth, and production backends across Cloud Run + Firebase.",
+    title: "RAG & Retrieval",
+    body: "Indexing, chunking, embeddings — PostgreSQL vector stores with LlamaIndex, tuned for sub-second answers in production chat.",
   },
   {
-    icon: Brain,
-    title: "AI / ML Pipelines",
-    body: "RAG, SLM workflows, vector retrieval and LLM orchestration shaped for real-world latency and cost budgets.",
+    icon: Workflow,
+    title: "Agentic Workflows",
+    body: "Multi-step agents, MCP servers and tool-calling pipelines orchestrated with n8n, Google ADK and FastAPI backends.",
   },
   {
-    icon: Code,
-    title: "Production Focus",
-    body: "FastAPI, CI/CD, monitoring, security review — moving prototypes from notebook to a system on-call.",
+    icon: Database,
+    title: "AI-Ready Data",
+    body: "12+ OAuth/RBAC connectors across Snowflake, Databricks, AWS and Azure; auditing, cleaning and ETL automation for reliable ingestion.",
   },
   {
-    icon: Cpu,
-    title: "Edge Optimization",
-    body: "TensorRT, quantization, ARM64 multithreading; deploying real-time CV pipelines on Jetson Orin.",
+    icon: AudioLines,
+    title: "Voice & Edge",
+    body: "Multimodal voice agents (voice → ASR → embeddings → agent), local SLMs for private retrieval, and TensorRT-tuned inference on Jetson Orin.",
   },
 ];
 
@@ -28,7 +28,7 @@ const About = () => {
     <section id="about" className="relative py-28 md:py-36 bg-surface rule-bottom">
       <div className="container">
         {/* Section head */}
-        <div className="grid grid-cols-12 gap-x-6 lg:gap-x-10 mb-16 md:mb-24">
+        <div className="grid grid-cols-12 gap-x-6 lg:gap-x-10 mb-16 md:mb-24" data-reveal>
           <div className="col-span-12 md:col-span-3">
             <div className="section-eyebrow">02 / About</div>
           </div>
@@ -40,26 +40,28 @@ const About = () => {
 
         {/* Two-col editorial */}
         <div className="grid grid-cols-12 gap-x-6 lg:gap-x-10 gap-y-12">
-          <div className="col-span-12 lg:col-span-7 space-y-6">
+          <div className="col-span-12 lg:col-span-7 space-y-6" data-reveal>
             <p className="font-display text-2xl md:text-[26px] leading-[1.35] max-w-[42ch]">
               I'm <em className="text-accent not-italic">Afzal Khan</em>, an AI
-              engineer from Islamabad. I design agent-first products,
-              production ML backends, and edge-optimised inference pipelines —
-              and I sit with them long enough to make them dependable.
+              workflow &amp; data engineer with 4+ years building production
+              RAG chatbots, multi-step agentic workflows, and clean data
+              pipelines on Databricks and Snowflake.
             </p>
             <p className="text-muted-foreground max-w-[58ch] leading-relaxed">
-              At ClaimbAI I architect a multi-agent ecosystem with Google ADK,
-              n8n, FastAPI and Cloud Run, building secure connectors over
-              Gmail, Calendar and Drive, plus RAG flows on Postgres + vector
-              stores.
+              At ClaimbAI I built a customer-support chatbot with complex RAG —
+              indexing, chunking, embeddings — backed by a PostgreSQL vector
+              store and LlamaIndex for sub-second retrieval. I maintain 12+
+              secure connectors (Snowflake, Databricks, AWS, Azure, GitHub,
+              Slack) with OAuth/RBAC, and I've designed multimodal voice agents
+              plus a local SLM for on-prem, private knowledge retrieval.
             </p>
             <p className="text-muted-foreground max-w-[58ch] leading-relaxed">
-              Before that, I shipped real-time computer-vision stacks on
-              Jetson Orin — YOLOv9–v11, GOTURN, CSRT, SAMURAI — tuned with
-              TensorRT and Qt visual dashboards for industrial use. I've
-              transformed 200M-row datasets into 3NF warehouses, cut Pepsi's
-              KSA/UAE refresh cycle by 57%, and kept the bill of complexity
-              down while doing it.
+              Before that, I shipped real-time computer-vision stacks on Jetson
+              Orin — YOLOv9–v11 tuned with TensorRT — transformed a 200M-row
+              dataset into a 3NF warehouse with star-schema semantic layers,
+              and cut Pepsi's KSA/UAE refresh cycle by 57%. I use AI-native
+              tools (Cursor, Claude) daily and work comfortably on US Eastern
+              hours.
             </p>
 
             {/* signature block */}
@@ -71,14 +73,14 @@ const About = () => {
                 <div className="text-right font-mono text-[10.5px] tracking-[0.18em] uppercase text-muted-foreground">
                   Mechatronics, NUST
                   <br />
-                  MIT MicroMasters · in progress
+                  MIT MicroMasters · Statistics & DS
                 </div>
               </div>
             </div>
           </div>
 
           {/* Pillar grid */}
-          <div className="col-span-12 lg:col-span-5">
+          <div className="col-span-12 lg:col-span-5" data-reveal data-reveal-delay="120">
             <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-px bg-border border border-border">
               {PILLARS.map((p, i) => (
                 <li

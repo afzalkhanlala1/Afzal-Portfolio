@@ -6,8 +6,10 @@ import Experience from "@/components/Experience";
 import Skills from "@/components/Skills";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 
 const Index = () => {
+  useScrollReveal();
   return (
     <div className="min-h-screen">
       <Navigation />

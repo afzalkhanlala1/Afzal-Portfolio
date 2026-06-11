@@ -115,7 +115,7 @@ const Navigation = () => {
             </button>
 
             <a
-              href={`${import.meta.env.BASE_URL}Afzal_Khan_Resume.pdf`}
+              href={`${import.meta.env.BASE_URL}Afzal_Khans_Resume.pdf`}
               download
               className="hidden sm:inline-flex items-center gap-1.5 h-9 px-3 border border-foreground/30 hover:border-foreground hover:bg-foreground hover:text-background transition-colors font-mono text-[11px] tracking-[0.18em] uppercase"
             >
@@ -185,7 +185,7 @@ const Navigation = () => {
             </ul>
             <div className="mt-auto pt-8">
               <a
-                href={`${import.meta.env.BASE_URL}Afzal_Khan_Resume.pdf`}
+                href={`${import.meta.env.BASE_URL}Afzal_Khans_Resume.pdf`}
                 download
                 className="btn-ink w-full"
                 onClick={() => setOpen(false)}

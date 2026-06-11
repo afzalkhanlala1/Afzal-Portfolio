@@ -12,7 +12,7 @@ const Projects = () => {
     <section id="projects" className="relative py-28 md:py-36 rule-bottom">
       <div className="container">
         {/* Header */}
-        <div className="grid grid-cols-12 gap-x-6 lg:gap-x-10 mb-16 md:mb-24">
+        <div className="grid grid-cols-12 gap-x-6 lg:gap-x-10 mb-16 md:mb-24" data-reveal>
           <div className="col-span-12 md:col-span-3">
             <div className="section-eyebrow">03 / Selected Work</div>
           </div>
@@ -23,9 +23,9 @@ const Projects = () => {
               of shipped systems.
             </h2>
             <p className="font-mono text-[12.5px] tracking-[0.04em] text-muted-foreground max-w-[52ch]">
-              Production AI agents, RAG infrastructure, computer-vision
-              pipelines and data warehouses — each entry pulled from a
-              real-world deployment.
+              Production RAG, voice agents, secure data connectors,
+              computer-vision pipelines and warehouses — each entry pulled
+              from a real-world deployment.
             </p>
           </div>
         </div>
@@ -36,7 +36,7 @@ const Projects = () => {
           onMouseLeave={() => setHovered(null)}
         >
           {list.map((p, i) => (
-            <li key={p.id}>
+            <li key={p.id} data-reveal>
               <a
                 href="https://github.com/afzalkhanlala1"
                 target="_blank"
@@ -102,10 +102,10 @@ const Projects = () => {
         </ol>
 
         {/* CTA */}
-        <div className="mt-14 md:mt-20 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
+        <div className="mt-14 md:mt-20 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6" data-reveal>
           <p className="font-display text-2xl md:text-3xl max-w-[40ch] leading-snug">
-            More projects sit in the archive — research agents, chatbots,
-            transfer-learning experiments.
+            More sits in the archive — MCP tooling, research agents,
+            personal assistants, analytics automation.
           </p>
           <button
             onClick={() =>

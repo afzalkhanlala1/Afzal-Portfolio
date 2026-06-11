@@ -2,8 +2,8 @@
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "Afzal Khan",
-  "jobTitle": "AI Engineer & Agent Systems Architect",
-  "description": "AI Engineer specializing in production agent systems, RAG pipelines, and edge-optimized ML. Building real-world AI solutions at ClaimbAI.",
+  "jobTitle": "AI Workflow & Data Engineer",
+  "description": "AI workflow & data engineer with 4+ years building production RAG chatbots, multi-step agentic workflows, voice agents, and AI-ready data pipelines on Databricks and Snowflake.",
   "email": "afzaljawadkhan@gmail.com",
   "telephone": "+92 337 9755627",
   "url": "https://afzalkhan.dev",
@@ -42,14 +42,16 @@
   },
   "knowsAbout": [
     "Artificial Intelligence",
-    "Machine Learning",
-    "Agent Systems",
     "RAG Systems",
-    "Computer Vision",
+    "Agentic Workflows",
+    "Voice Agents",
+    "Model Context Protocol",
+    "Data Engineering",
+    "Snowflake",
+    "Databricks",
     "MLOps",
+    "Computer Vision",
     "TensorRT",
-    "PyTorch",
-    "Python",
-    "Edge Computing"
+    "Python"
   ]
 }

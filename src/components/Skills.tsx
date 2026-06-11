@@ -1,51 +1,61 @@
-import { Bot, Brain, Cloud, Code, Database, Zap } from "lucide-react";
+import { AudioLines, Bot, Brain, Cloud, Database, Plug, Zap } from "lucide-react";
 
 const CATEGORIES = [
   {
     icon: Brain,
-    title: "AI & LLMs",
-    skills: ["LangChain", "LlamaIndex", "RAG", "Local SLMs (Ollama)", "Hugging Face", "Whisper"],
+    title: "LLMs, RAG & Agents",
+    skills: ["RAG Pipelines", "LangChain", "LlamaIndex", "Agentic Workflows", "MCP Servers", "Prompt Engineering", "Ollama / Local SLMs", "BitNet"],
   },
   {
     icon: Bot,
-    title: "Agents & Integrations",
-    skills: ["Google ADK", "n8n", "Zapier", "OAuth Connectors", "Multi-Agent", "Workflow Auto"],
+    title: "Agent Orchestration",
+    skills: ["Google ADK", "n8n", "Multi-Agent Systems", "Tool Calling", "Zapier / Make", "GoHighLevel", "Cursor / Claude Code"],
   },
   {
-    icon: Code,
-    title: "ML / DL Frameworks",
-    skills: ["PyTorch", "TensorFlow", "YOLO v9–v11", "OpenCV", "scikit-learn", "Transfer Learning"],
+    icon: AudioLines,
+    title: "Voice & Multimodal",
+    skills: ["Voice Agents", "Whisper / ASR", "Librosa", "Voice → ASR → Agent Pipelines", "Hugging Face", "Transformers"],
+  },
+  {
+    icon: Plug,
+    title: "APIs & Integrations",
+    skills: ["OpenAI", "Anthropic", "Gemini", "FastAPI / REST", "OAuth / RBAC Connectors", "Webhooks", "CI/CD"],
+  },
+  {
+    icon: Database,
+    title: "Data Engineering",
+    skills: ["SQL / Python", "PostgreSQL + pgvector", "Snowflake", "Databricks", "ETL Automation", "Data Auditing & Cleaning", "3NF / Dimensional Modeling"],
+  },
+  {
+    icon: Cloud,
+    title: "MLOps & Cloud",
+    skills: ["Docker", "Kubernetes", "MLflow", "AWS Glue", "SageMaker", "Cloud Run", "Firebase", "Azure"],
   },
   {
     icon: Zap,
     title: "Edge & Optimization",
-    skills: ["TensorRT", "ONNX", "Quantization", "Jetson Orin", "GPU Tuning", "Real-time Inference"],
+    skills: ["TensorRT", "ONNX", "Quantization & Pruning", "Jetson Orin (aarch64)", "YOLO v9–v11", "Real-time Inference"],
   },
   {
-    icon: Cloud,
-    title: "Cloud & MLOps",
-    skills: ["Docker", "Kubernetes", "Cloud Run", "Firebase Fns", "CI/CD", "Monitoring"],
-  },
-  {
-    icon: Database,
-    title: "Data & Backend",
-    skills: ["PostgreSQL", "Vector DBs", "ETL", "FastAPI", "Node.js", "AWS Glue"],
+    icon: Brain,
+    title: "ML & Analytics",
+    skills: ["PyTorch", "TensorFlow", "scikit-learn", "Predictive Analytics", "Tableau", "Power BI"],
   },
 ];
 
 const LANGUAGES = [
-  "Python", "C++", "Rust", "TypeScript", "JavaScript", "SQL", "React",
-  "Node.js", "Qt", "MATLAB", "R", "Bash", "FastAPI", "Flask", "Express", "Vue", "Angular",
+  "Python", "SQL", "C++", "TypeScript", "JavaScript", "Node.js",
+  "React", "FastAPI", "Qt", "Bash", "MATLAB",
 ];
 
 const CERTIFICATIONS = [
-  "MIT MicroMasters · Statistics & Data Science (in progress)",
+  "MIT MicroMasters · Statistics & Data Science",
   "McKinsey Forward Program",
   "Google Data Analytics Certificate",
   "Tableau Data Analysis Certification",
   "Advanced SQL · Udacity",
   "UI / UX Design · CalArts",
-  "CS50 — Computer Science",
+  "CS50 — Harvard",
 ];
 
 const Skills = () => {
@@ -53,7 +63,7 @@ const Skills = () => {
     <section id="skills" className="relative py-28 md:py-36 rule-bottom">
       <div className="container">
         {/* Header */}
-        <div className="grid grid-cols-12 gap-x-6 lg:gap-x-10 mb-16 md:mb-24">
+        <div className="grid grid-cols-12 gap-x-6 lg:gap-x-10 mb-16 md:mb-24" data-reveal>
           <div className="col-span-12 md:col-span-3">
             <div className="section-eyebrow">05 / Stack</div>
           </div>
@@ -64,7 +74,7 @@ const Skills = () => {
         </div>
 
         {/* Category grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-border border border-border">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-border border border-border" data-reveal>
           {CATEGORIES.map((cat, i) => (
             <div
               key={cat.title}
@@ -94,7 +104,7 @@ const Skills = () => {
         {/* Languages + Certs */}
         <div className="mt-20 grid grid-cols-12 gap-x-6 lg:gap-x-10 gap-y-12">
           {/* Languages */}
-          <div className="col-span-12 lg:col-span-7">
+          <div className="col-span-12 lg:col-span-7" data-reveal>
             <div className="section-eyebrow mb-6">Languages & Frameworks</div>
             <ul className="flex flex-wrap gap-3">
               {LANGUAGES.map((l) => (
@@ -109,7 +119,7 @@ const Skills = () => {
           </div>
 
           {/* Education + Certs */}
-          <div className="col-span-12 lg:col-span-5">
+          <div className="col-span-12 lg:col-span-5" data-reveal data-reveal-delay="120">
             <div className="section-eyebrow mb-6">Education & Certifications</div>
             <div className="rule pt-6">
               <div className="flex items-baseline justify-between gap-4 mb-1">

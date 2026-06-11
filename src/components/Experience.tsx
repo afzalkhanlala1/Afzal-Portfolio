@@ -5,12 +5,13 @@ const EXPERIENCES = [
     location: "California, USA · Remote",
     period: "Jul 2025 — Present",
     description:
-      "Architected & shipped an agent-first ecosystem with Google ADK, n8n, Firebase Functions, and Cloud Run powering web, iOS and Android frontends.",
+      "Building production RAG, agentic workflows and secure data ingestion for an AI-native customer-support platform.",
     highlights: [
-      "Built secure connectors for Gmail, Calendar, Drive and task systems for agent access to user resources",
-      "Designed RAG and SLM workflows with Postgres vector stores and LlamaIndex-style patterns",
-      "Implemented production REST/FastAPI backends with CI/CD pipelines and monitoring",
-      "Collaborated with product, mobile, and security teams on privacy-preserving connectors",
+      "Built a customer-support chatbot with complex RAG (indexing, chunking, embeddings) using Google LLMs via BitNet",
+      "Built and maintain 12+ secure connectors (Snowflake, Databricks, AWS, Azure, GitHub, Slack) with OAuth/RBAC",
+      "Designed multimodal voice agents (voice → ASR → embeddings → agent) plus a local SLM for private retrieval",
+      "Architected PostgreSQL vector store + LlamaIndex RAG infrastructure — sub-second retrieval, ~70% less manual work",
+      "Shipped chat widget frontends and FastAPI REST APIs with CI/CD — cut rollback incidents ~40%",
     ],
     current: true,
   },
@@ -20,12 +21,12 @@ const EXPERIENCES = [
     location: "Islamabad, PK",
     period: "Jan 2025 — Oct 2025",
     description:
-      "Developed real-time computer vision and tracking stacks deployed on NVIDIA Jetson Orin.",
+      "Developed real-time computer vision and multi-object tracking stacks deployed on NVIDIA Jetson Orin.",
     highlights: [
       "Built YOLOv9–v11, GOTURN, CSRT and SAMURAI tracking systems",
-      "Optimized models via TensorRT, pruning and quantization — ~30% inference uplift",
-      "Developed C++/Qt visualisation dashboards (40+ screens)",
-      "Led system integration across firmware and compute nodes, reducing boot time",
+      "Optimized models via TensorRT, pruning and quantization — ~30% inference uplift, 25% fewer false positives",
+      "Developed C++/Qt visualisation dashboards (40+ screens) — reduced debugging time by 90%",
+      "Led integration across firmware and Radxa/Armbian compute nodes — increased uptime by 95%",
     ],
   },
   {
@@ -36,10 +37,10 @@ const EXPERIENCES = [
     description:
       "Led operations, recruitment and growth while contributing hands-on technical work.",
     highlights: [
-      "Directed transformation of 200M-row dataset into a normalized 3NF data warehouse",
-      "Built Node.js/React chatbot and automated ETL with AWS Glue",
-      "Developed proof-of-concept player tracking system with OpenCV",
-      "Managed client relationships and cross-functional teams",
+      "Converted a 200M-row dataset (~200 tables) into a normalized 3NF warehouse with star-schema semantic layers",
+      "Built a Node.js/React agent chatbot and automated ETL with AWS Glue + SQL",
+      "Cut manual ETL interventions by 4 hours through pipeline automation",
+      "Delivered player-tracking (OpenCV) PoCs and production scraping pipelines",
     ],
   },
   {
@@ -50,10 +51,10 @@ const EXPERIENCES = [
     description:
       "Implemented market-basket analysis, dimensional modelling and dashboarding solutions.",
     highlights: [
-      "Automated Pepsi KSA & UAE project — refresh cycle 1 week → 3 days (57%)",
-      "Built ML pipelines for transcription and audio analytics (OCR + ASR)",
-      "Conducted ETL transforming raw data into 3NF warehouse",
-      "Developed dimensional model semantic layers for analytics",
+      "Automated Pepsi KSA & UAE project — refresh cycle 1 week → 3 days (57%), team size 6 → 2",
+      "Built ML pipelines for transcription and audio analytics (OCR + timestamped ASR)",
+      "Performed ETL transforming raw sources into 3NF for analytics consumption",
+      "Developed dimensional model semantic layers and Tableau dashboards",
     ],
   },
   {
@@ -64,10 +65,10 @@ const EXPERIENCES = [
     description:
       "Delivered end-to-end analytics and predictive models for telco, healthcare and finance clients.",
     highlights: [
-      "Automated ETL workflows using SQL and AWS Glue",
-      "Built dashboards in Power BI and Tableau with automated reporting",
+      "Automated ETL workflows using SQL and AWS Glue — improved report freshness by 25%",
+      "Built churn, forecasting and inventory-optimization models end to end",
+      "Created Power BI / Tableau dashboards with scheduled executive reporting",
       "Statistical analyses with pandas, NumPy and scikit-learn",
-      "Consulting for data-driven SME strategies",
     ],
   },
 ];
@@ -77,7 +78,7 @@ const Experience = () => {
     <section id="experience" className="relative py-28 md:py-36 bg-surface rule-bottom">
       <div className="container">
         {/* Header */}
-        <div className="grid grid-cols-12 gap-x-6 lg:gap-x-10 mb-16 md:mb-24">
+        <div className="grid grid-cols-12 gap-x-6 lg:gap-x-10 mb-16 md:mb-24" data-reveal>
           <div className="col-span-12 md:col-span-3">
             <div className="section-eyebrow">04 / Experience</div>
           </div>
@@ -92,6 +93,7 @@ const Experience = () => {
             <li
               key={exp.company + exp.period}
               className="grid grid-cols-12 gap-x-6 lg:gap-x-10 py-10 md:py-14 border-b border-border group"
+              data-reveal
             >
               {/* Index */}
               <div className="col-span-12 md:col-span-1 font-mono text-[11px] tracking-[0.2em] text-muted-foreground tabular pt-2">

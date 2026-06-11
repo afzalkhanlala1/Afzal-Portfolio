@@ -65,7 +65,7 @@ const Contact = () => {
     <section id="contact" className="relative py-28 md:py-36 bg-surface">
       <div className="container">
         {/* Header */}
-        <div className="grid grid-cols-12 gap-x-6 lg:gap-x-10 mb-16 md:mb-24">
+        <div className="grid grid-cols-12 gap-x-6 lg:gap-x-10 mb-16 md:mb-24" data-reveal>
           <div className="col-span-12 md:col-span-3">
             <div className="section-eyebrow">06 / Contact</div>
           </div>
@@ -78,11 +78,11 @@ const Contact = () => {
 
         <div className="grid grid-cols-12 gap-x-6 lg:gap-x-10 gap-y-16">
           {/* Left — details ledger */}
-          <div className="col-span-12 lg:col-span-5">
+          <div className="col-span-12 lg:col-span-5" data-reveal>
             <p className="font-display text-2xl md:text-[28px] leading-[1.3] max-w-[36ch] mb-10">
-              Whether it's an AI engineering role, agent-systems consulting,
-              or a tough ML pipeline you need stitched together — I'd love
-              to hear about it.
+              An AI engineering role, a RAG system that needs to actually
+              work, or a data pipeline worth untangling — I'd love to hear
+              about it. Fully remote, comfortable on US Eastern hours.
             </p>
 
             <dl className="border-t border-border">
@@ -114,7 +114,7 @@ const Contact = () => {
 
             <div className="mt-10 flex flex-wrap gap-3">
               <a
-                href={`${import.meta.env.BASE_URL}Afzal_Khan_Resume.pdf`}
+                href={`${import.meta.env.BASE_URL}Afzal_Khans_Resume.pdf`}
                 download
                 className="btn-ink"
               >
@@ -136,6 +136,8 @@ const Contact = () => {
           <form
             onSubmit={handleSubmit}
             className="col-span-12 lg:col-span-7 lg:pl-10 lg:border-l lg:border-border flex flex-col"
+            data-reveal
+            data-reveal-delay="120"
           >
             <div className="section-eyebrow mb-8">Send a message</div>
 

@@ -1,8 +1,10 @@
 import { useMemo, useState } from "react";
 import { ArrowLeft, ArrowUpRight, TrendingUp } from "lucide-react";
 import { getAllProjects } from "@/data/projects";
+import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 
 const Projects = () => {
+  useScrollReveal();
   const projects = getAllProjects();
   const categories = useMemo(
     () => ["All", ...Array.from(new Set(projects.map((p) => p.category)))],
@@ -37,7 +39,7 @@ const Projects = () => {
       <section className="relative pt-24 md:pt-32 pb-20 rule-bottom overflow-hidden">
         <div className="absolute inset-0 grid-backdrop opacity-50 pointer-events-none" />
         <div className="container relative">
-          <div className="grid grid-cols-12 gap-x-6 lg:gap-x-10">
+          <div className="grid grid-cols-12 gap-x-6 lg:gap-x-10" data-reveal>
             <div className="col-span-12 md:col-span-3">
               <div className="section-eyebrow">A / Archive</div>
             </div>
@@ -48,9 +50,10 @@ const Projects = () => {
                 in full.
               </h1>
               <p className="text-muted-foreground font-mono text-[12.5px] tracking-[0.04em] max-w-[60ch]">
-                A complete record of shipped systems and explorations: AI
-                agents, RAG, computer-vision pipelines, data warehouses, and
-                a few side experiments that earned their keep.
+              A complete record of shipped systems and explorations:
+              production RAG, voice agents, secure connectors, MCP tooling,
+              computer-vision pipelines, warehouses — and a few side
+              experiments that earned their keep.
               </p>
             </div>
           </div>
@@ -181,7 +184,7 @@ const Projects = () => {
                 <ArrowUpRight className="h-4 w-4" />
               </button>
               <a
-                href={`${import.meta.env.BASE_URL}Afzal_Khan_Resume.pdf`}
+                href={`${import.meta.env.BASE_URL}Afzal_Khans_Resume.pdf`}
                 download
                 className="btn-ghost-ink"
               >
