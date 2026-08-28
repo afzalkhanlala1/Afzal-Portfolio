@@ -2,8 +2,8 @@
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "Afzal Khan",
-  "jobTitle": "AI Workflow & Data Engineer",
-  "description": "AI workflow & data engineer with 4+ years building production RAG chatbots, multi-step agentic workflows, voice agents, and AI-ready data pipelines on Databricks and Snowflake.",
+  "jobTitle": "AI Engineer",
+  "description": "AI engineer with 4+ years across post-training, reward design and evaluation infrastructure — SFT, GRPO/PPO, verifiers, eval harnesses and the platforms that keep them honest.",
   "email": "afzaljawadkhan@gmail.com",
   "telephone": "+92 337 9755627",
   "url": "https://afzalkhan.dev",
@@ -27,7 +27,7 @@
       "description": "In Progress"
     },
     {
-      "@type": "EducationalOccupationalCredential", 
+      "@type": "EducationalOccupationalCredential",
       "name": "McKinsey Forward Program"
     },
     {
@@ -38,20 +38,22 @@
   "worksFor": {
     "@type": "Organization",
     "name": "ClaimbAI",
-    "description": "AI Engineer building agent-first ecosystems and production ML systems"
+    "description": "AI Engineer owning post-training, evaluation infrastructure and production ML systems"
   },
   "knowsAbout": [
     "Artificial Intelligence",
+    "Post-Training",
+    "GRPO",
+    "PPO",
+    "Reward Models",
+    "Evaluation Infrastructure",
+    "Verifiers",
+    "vLLM",
+    "Kubernetes",
     "RAG Systems",
-    "Agentic Workflows",
-    "Voice Agents",
-    "Model Context Protocol",
-    "Data Engineering",
-    "Snowflake",
-    "Databricks",
     "MLOps",
     "Computer Vision",
-    "TensorRT",
+    "PyTorch",
     "Python"
   ]
 }

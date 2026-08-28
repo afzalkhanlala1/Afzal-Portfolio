@@ -1,18 +1,18 @@
 import { ArrowDown, ArrowUpRight, MapPin } from "lucide-react";
 
 const MARQUEE_ITEMS = [
+  "Post-Training",
+  "GRPO / PPO",
+  "Reward Models",
+  "TRL",
+  "Verifier Design",
+  "Eval Harnesses",
+  "vLLM",
+  "Kubernetes",
   "RAG Pipelines",
-  "Agentic Workflows",
-  "Voice Agents",
-  "LlamaIndex",
-  "Vector Search",
-  "Snowflake",
-  "Databricks",
-  "MCP Servers",
-  "FastAPI",
-  "OAuth Connectors",
-  "TensorRT",
-  "n8n Automation",
+  "Tool-Use Agents",
+  "PyTorch",
+  "Rollout Collection",
 ];
 
 const Hero = () => {
@@ -51,8 +51,8 @@ const Hero = () => {
           <div className="col-span-12 lg:col-span-3 flex flex-col gap-3 reveal" style={{ animationDelay: "120ms" }}>
             <span className="section-eyebrow">Afzal Khan</span>
             <p className="font-mono text-[12px] leading-relaxed text-muted-foreground max-w-[28ch]">
-              AI workflow &amp; data engineer — RAG, agentic systems and MLOps.
-              Currently shipping at{" "}
+              AI engineer — post-training, reward design and evaluation
+              infrastructure. Currently shipping at{" "}
               <span className="text-foreground">ClaimbAI</span>.
             </p>
           </div>
@@ -63,16 +63,16 @@ const Hero = () => {
             style={{ animationDelay: "200ms" }}
           >
             <span className="block text-[clamp(3.25rem,11vw,10rem)]">
-              Agents that ship,
+              Models that learn,
             </span>
             <span className="block text-[clamp(3.25rem,11vw,10rem)]">
-              <em className="not-italic text-accent">retrieval</em> that's fast,
+              <em className="not-italic text-accent">rewards</em> that hold,
             </span>
             <span className="block text-[clamp(3.25rem,11vw,10rem)] italic">
-              & data that's
+              & evals that
             </span>
             <span className="block text-[clamp(3.25rem,11vw,10rem)]">
-              actually AI-ready.
+              can't be gamed.
             </span>
           </h1>
         </div>
@@ -102,9 +102,10 @@ const Hero = () => {
             <div className="reveal" style={{ animationDelay: "400ms" }}>
               <div className="section-eyebrow mb-5">Brief</div>
               <p className="font-display text-2xl md:text-[28px] lg:text-[34px] leading-[1.18] tracking-[-0.01em] max-w-[36ch]">
-                I build production RAG chatbots, multi-step agentic workflows,
-                and the secure data pipelines that feed them — from OAuth
-                connectors to vector stores to clean chat frontends.
+                I post-train small language models end to end — SFT,
+                GRPO/PPO, reward models — and build the verifiers, eval
+                harnesses and infrastructure that tell you whether any of it
+                actually worked.
               </p>
 
               <div className="mt-8 flex flex-wrap gap-3">
@@ -129,9 +130,9 @@ const Hero = () => {
             <div className="grid grid-cols-2 sm:grid-cols-4 rule reveal" style={{ animationDelay: "520ms" }}>
               {[
                 { k: "Years building", v: "4+", note: "shipped systems" },
-                { k: "Secure connectors", v: "12+", note: "OAuth / RBAC" },
-                { k: "RAG retrieval", v: "<1s", note: "PG vector + LlamaIndex" },
-                { k: "Manual work cut", v: "~70%", note: "pipeline automation" },
+                { k: "Post-training", v: "GRPO", note: "PPO · TRL · reward models" },
+                { k: "Eval platform", v: "1", note: "built from scratch" },
+                { k: "Clouds in prod", v: "4", note: "AWS · Azure · GCP · Vercel" },
               ].map((s, i) => (
                 <div
                   key={s.k}

@@ -80,9 +80,9 @@ const Contact = () => {
           {/* Left — details ledger */}
           <div className="col-span-12 lg:col-span-5" data-reveal>
             <p className="font-display text-2xl md:text-[28px] leading-[1.3] max-w-[36ch] mb-10">
-              An AI engineering role, a RAG system that needs to actually
-              work, or a data pipeline worth untangling — I'd love to hear
-              about it. Fully remote, comfortable on US Eastern hours.
+              A post-training role, an eval harness that needs to hold, or
+              infrastructure under a training loop — I'd love to hear about
+              it. Fully remote, comfortable on US Eastern hours.
             </p>
 
             <dl className="border-t border-border">

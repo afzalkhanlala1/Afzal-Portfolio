@@ -28,8 +28,8 @@ const Footer = () => {
         <div className="mt-12 grid grid-cols-12 gap-x-6 lg:gap-x-10 gap-y-10 pt-10 border-t border-background/15">
           <div className="col-span-12 md:col-span-5">
             <p className="font-display text-2xl md:text-[28px] leading-[1.3] max-w-[34ch] text-background/90">
-              Building agent systems and production AI from Islamabad — open
-              to roles and collaborations worldwide.
+              Post-training, reward design and evaluation infrastructure
+              from Islamabad — open to roles and collaborations worldwide.
             </p>
           </div>
 

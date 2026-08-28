@@ -51,9 +51,9 @@ const Projects = () => {
               </h1>
               <p className="text-muted-foreground font-mono text-[12.5px] tracking-[0.04em] max-w-[60ch]">
               A complete record of shipped systems and explorations:
-              production RAG, voice agents, secure connectors, MCP tooling,
-              computer-vision pipelines, warehouses — and a few side
-              experiments that earned their keep.
+              post-training pipelines, evaluation infrastructure, RAG,
+              agent tooling, computer-vision stacks, warehouses — and a
+              few side experiments that earned their keep.
               </p>
             </div>
           </div>

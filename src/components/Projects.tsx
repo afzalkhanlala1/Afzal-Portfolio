@@ -23,9 +23,9 @@ const Projects = () => {
               of shipped systems.
             </h2>
             <p className="font-mono text-[12.5px] tracking-[0.04em] text-muted-foreground max-w-[52ch]">
-              Production RAG, voice agents, secure data connectors,
-              computer-vision pipelines and warehouses — each entry pulled
-              from a real-world deployment.
+              Post-training pipelines, evaluation infrastructure, agent
+              tooling, RAG systems and computer-vision stacks — each entry
+              pulled from a real deployment.
             </p>
           </div>
         </div>
@@ -105,7 +105,7 @@ const Projects = () => {
         <div className="mt-14 md:mt-20 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6" data-reveal>
           <p className="font-display text-2xl md:text-3xl max-w-[40ch] leading-snug">
             More sits in the archive — MCP tooling, research agents,
-            personal assistants, analytics automation.
+            voice pipelines, warehouses and analytics automation.
           </p>
           <button
             onClick={() =>

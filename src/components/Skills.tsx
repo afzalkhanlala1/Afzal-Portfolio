@@ -1,61 +1,60 @@
-import { AudioLines, Bot, Brain, Cloud, Database, Plug, Zap } from "lucide-react";
+import { Bot, Brain, Cloud, Database, Gauge, Plug, Target, Zap } from "lucide-react";
 
 const CATEGORIES = [
   {
-    icon: Brain,
-    title: "LLMs, RAG & Agents",
-    skills: ["RAG Pipelines", "LangChain", "LlamaIndex", "Agentic Workflows", "MCP Servers", "Prompt Engineering", "Ollama / Local SLMs", "BitNet"],
+    icon: Target,
+    title: "Post-Training & RL",
+    skills: ["RLVR", "GRPO", "PPO", "Preference Pairs", "Reward-Model Training", "Reward Shaping", "TRL", "Credit Assignment"],
+  },
+  {
+    icon: Gauge,
+    title: "Evaluation",
+    skills: ["Rubric Design", "Partial Credit", "Gold Solutions", "Held-Out Sets", "Contamination Avoidance", "Trajectory Inspection", "Difficulty Calibration"],
   },
   {
     icon: Bot,
-    title: "Agent Orchestration",
-    skills: ["Google ADK", "n8n", "Multi-Agent Systems", "Tool Calling", "Zapier / Make", "GoHighLevel", "Cursor / Claude Code"],
+    title: "Agentic Systems",
+    skills: ["Tool Calling", "Multi-Turn Rollouts", "Persistent State", "MCP Servers", "Google ADK", "n8n", "Cursor / Claude Code"],
   },
   {
-    icon: AudioLines,
-    title: "Voice & Multimodal",
-    skills: ["Voice Agents", "Whisper / ASR", "Librosa", "Voice → ASR → Agent Pipelines", "Hugging Face", "Transformers"],
+    icon: Cloud,
+    title: "Infra & DevOps",
+    skills: ["Kubernetes", "Docker", "CI/CD", "AWS", "Azure", "GCP", "Vercel", "Modal", "GPU Scheduling"],
+  },
+  {
+    icon: Brain,
+    title: "Training Stack",
+    skills: ["PyTorch", "Hugging Face", "vLLM", "Transformers", "MLflow", "Checkpointing", "Dataset Versioning"],
   },
   {
     icon: Plug,
-    title: "APIs & Integrations",
-    skills: ["OpenAI", "Anthropic", "Gemini", "FastAPI / REST", "OAuth / RBAC Connectors", "Webhooks", "CI/CD"],
+    title: "APIs & Serving",
+    skills: ["FastAPI / REST", "OpenAI", "Anthropic", "Gemini", "OAuth / RBAC Connectors", "Webhooks", "Redis"],
   },
   {
     icon: Database,
     title: "Data Engineering",
-    skills: ["SQL / Python", "PostgreSQL + pgvector", "Snowflake", "Databricks", "ETL Automation", "Data Auditing & Cleaning", "3NF / Dimensional Modeling"],
-  },
-  {
-    icon: Cloud,
-    title: "MLOps & Cloud",
-    skills: ["Docker", "Kubernetes", "MLflow", "AWS Glue", "SageMaker", "Cloud Run", "Firebase", "Azure"],
+    skills: ["SQL / Python", "PostgreSQL + pgvector", "Snowflake", "Databricks", "ETL Automation", "3NF / Dimensional Modeling"],
   },
   {
     icon: Zap,
     title: "Edge & Optimization",
     skills: ["TensorRT", "ONNX", "Quantization & Pruning", "Jetson Orin (aarch64)", "YOLO v9–v11", "Real-time Inference"],
   },
-  {
-    icon: Brain,
-    title: "ML & Analytics",
-    skills: ["PyTorch", "TensorFlow", "scikit-learn", "Predictive Analytics", "Tableau", "Power BI"],
-  },
 ];
 
 const LANGUAGES = [
-  "Python", "SQL", "C++", "TypeScript", "JavaScript", "Node.js",
-  "React", "FastAPI", "Qt", "Bash", "MATLAB",
+  "Python", "SQL", "C++", "TypeScript", "Node.js", "React",
+  "Bash", "Git", "pytest", "Linux", "Qt",
 ];
 
 const CERTIFICATIONS = [
   "MIT MicroMasters · Statistics & Data Science",
-  "McKinsey Forward Program",
-  "Google Data Analytics Certificate",
-  "Tableau Data Analysis Certification",
-  "Advanced SQL · Udacity",
-  "UI / UX Design · CalArts",
+  "Independent research · mathematical logic & set theory",
   "CS50 — Harvard",
+  "Google Data Analytics Certificate",
+  "Advanced SQL · Udacity",
+  "McKinsey Forward Program",
 ];
 
 const Skills = () => {

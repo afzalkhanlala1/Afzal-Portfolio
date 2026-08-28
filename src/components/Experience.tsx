@@ -5,13 +5,16 @@ const EXPERIENCES = [
     location: "California, USA · Remote",
     period: "Jul 2025 — Present",
     description:
-      "Building production RAG, agentic workflows and secure data ingestion for an AI-native customer-support platform.",
+      "Own the post-training loop for an in-house SLM — SFT, preference optimization, reward models — plus the evaluation platform and the infrastructure underneath both.",
     highlights: [
-      "Built a customer-support chatbot with complex RAG (indexing, chunking, embeddings) using Google LLMs via BitNet",
-      "Built and maintain 12+ secure connectors (Snowflake, Databricks, AWS, Azure, GitHub, Slack) with OAuth/RBAC",
-      "Designed multimodal voice agents (voice → ASR → embeddings → agent) plus a local SLM for private retrieval",
-      "Architected PostgreSQL vector store + LlamaIndex RAG infrastructure — sub-second retrieval, ~70% less manual work",
-      "Shipped chat widget frontends and FastAPI REST APIs with CI/CD — cut rollback incidents ~40%",
+      "Post-train an in-house SLM end to end: SFT, preference optimization with GRPO/PPO via Hugging Face TRL, reward-model training on curated preference pairs",
+      "Designed verifiers and reward shaping for multi-step tool-use trajectories — milestone checks so partial progress earns credit under sparse terminal rewards",
+      "Built the RL data pipeline: prompt curation, rollout collection, preference labeling and dataset versioning, with PostgreSQL/Redis job state for resumable runs",
+      "Built an internal AI evaluation platform from scratch — task definitions, gold solutions, rubric-based partial credit, held-out splits, trajectory inspection",
+      "Added tool use and function calling; scored on tool selection, argument correctness and recovery from failed calls across multi-turn rollouts",
+      "Platform ownership across AWS, Azure, GCP and Vercel: Kubernetes, Docker, GPU scheduling, CI/CD — rollback incidents down ~40%",
+      "Architected the PostgreSQL vector store + LlamaIndex RAG layer — sub-second retrieval, ~70% less manual work",
+      "LLMOps: vLLM serving, latency/cost monitoring and quality-drift tracking across model versions",
     ],
     current: true,
   },
@@ -54,7 +57,6 @@ const EXPERIENCES = [
       "Automated Pepsi KSA & UAE project — refresh cycle 1 week → 3 days (57%), team size 6 → 2",
       "Built ML pipelines for transcription and audio analytics (OCR + timestamped ASR)",
       "Performed ETL transforming raw sources into 3NF for analytics consumption",
-      "Developed dimensional model semantic layers and Tableau dashboards",
     ],
   },
   {
@@ -67,7 +69,6 @@ const EXPERIENCES = [
     highlights: [
       "Automated ETL workflows using SQL and AWS Glue — improved report freshness by 25%",
       "Built churn, forecasting and inventory-optimization models end to end",
-      "Created Power BI / Tableau dashboards with scheduled executive reporting",
       "Statistical analyses with pandas, NumPy and scikit-learn",
     ],
   },
