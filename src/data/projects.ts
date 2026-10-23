@@ -6,274 +6,213 @@ export interface Project {
   tech: string[];
   category: string;
   featured: boolean;
-  achievements?: string[];
+  status: string;
+  role: string;
+  achievements: string[];
+  note?: string;
+  image?: string;
+  imageAlt?: string;
   timeline?: string;
   impact?: string;
 }
-
 export const projects: Project[] = [
   {
-    id: "slm-post-training",
-    title: "In-House SLM Post-Training Pipeline",
-    summary: "End-to-end post-training for a small language model — SFT, GRPO/PPO preference optimization via TRL, and reward-model training on curated preference pairs.",
-    description: "Own the full post-training loop for ClaimbAI's in-house SLM. Supervised fine-tuning establishes the base behaviour; preference-based optimization with GRPO and PPO through Hugging Face TRL refines it against a reward model trained on curated preference pairs. The surrounding pipeline handles prompt curation, rollout collection, preference labeling and dataset versioning, with PostgreSQL and Redis backing job state so multi-hour runs resume from checkpoints rather than restarting. Serving runs through vLLM.",
-    tech: ["PyTorch", "TRL", "GRPO", "PPO", "Reward Models", "Hugging Face", "vLLM", "PostgreSQL", "Redis", "Docker"],
-    category: "Post-Training",
-    featured: true,
-    achievements: [
-      "SFT → preference optimization → reward-model training, owned end to end",
-      "Verifiers and reward shaping for multi-step tool-use trajectories",
-      "Milestone rewards so partial progress earns credit under sparse terminal signals",
-      "Resumable, checkpointed runs backed by PostgreSQL + Redis job state",
-      "Tool use and function calling added and scored across multi-turn rollouts",
-    ],
-    timeline: "2025 – Present",
-    impact: "A small model tuned on real preference data, not prompt engineering",
+    id: 'ai-eval-platform', title: 'AI Evaluation Platform', category: 'AI & agents', featured: true,
+    status: 'Professional work', role: 'Evaluation design & engineering',
+    summary: 'A better model needs a better way to measure it.',
+    description: 'Built an internal evaluation platform from scratch at ClaimbAI, connecting task definitions and gold solutions to weighted rubrics, held-out evaluations and checkpoint comparisons. The focus is on understanding how an agent arrived at an answer, including partial progress, failed tool calls and shortcuts through the scoring system.',
+    tech: ['Python', 'Rubric design', 'Formal verifiers', 'Trajectory analysis'],
+    achievements: ['Pluggable tasks and environments with authored gold solutions.', 'Weighted partial-credit scoring and held-out task splits.', 'Multi-step trajectory inspection and checkpoint regression checks.', 'Failure-mode analysis to identify shortcut strategies and metric gaming.'],
+    note: 'Internal engineering work. Implementation and evaluation data are not publicly distributed.'
   },
   {
-    id: "ai-eval-platform",
-    title: "AI Evaluation Platform",
-    summary: "Built from scratch: task definitions, gold solutions, rubric-based partial credit, held-out splits and per-run trajectory inspection.",
-    description: "The counterpart to the training loop — a platform for deciding whether a checkpoint is actually better. Tasks and environments are defined declaratively alongside gold solutions; scoring runs against weighted rubrics that award partial credit rather than collapsing everything into pass/fail. Held-out splits guard against contamination, and per-run trajectory inspection makes it possible to see where a model genuinely solved a task versus where it found a shortcut through the metric.",
-    tech: ["Python", "FastAPI", "PostgreSQL", "Rubric Scoring", "Held-Out Sets", "Trajectory Analysis", "Docker"],
-    category: "Evaluation",
-    featured: true,
-    achievements: [
-      "Pluggable task and environment definitions with authored gold solutions",
-      "Weighted rubrics with partial credit, not binary pass/fail",
-      "Held-out task splits for contamination-resistant measurement",
-      "Side-by-side checkpoint comparison across model versions",
-      "Per-run trajectory inspection to surface metric gaming",
-    ],
-    timeline: "2025 – Present",
-    impact: "Training signal you can trust, because the grader is auditable",
+    id: 'quanta', title: 'Quanta', category: 'Products', featured: true, status: 'Evaluation release', role: 'Solo product & engine engineering',
+    summary: 'Claims valuation, with the working shown.',
+    description: 'A deterministic claims engine that turns structured facts into traceable calculations and associated documents. The project spans a UK workflow and a newer bilingual Japan evaluation workspace with evidence intake, versioned public-rule calculations, human review and PDF exports.',
+    tech: ['Python', 'Next.js', 'TypeScript', 'Rule engines', 'PDF generation'],
+    image: 'quanta.webp', imageAlt: 'Quanta demonstration workspace showing insurance policies and claims',
+    achievements: ['Deterministic calculations with explicit provenance and versioned rules.', 'English/Japanese intake, document extraction and bilingual PDF exports.', 'Human review and isolated local sessions in the Japan release.', 'Structured claim facts and document drafting in the UK workflow.'],
+    note: 'An evaluation product: UK legal figures are fixtures; the Japan release uses public-rule sources and fictional sample cases. Paid comparables and enterprise integrations remain future work.'
   },
   {
-    id: "multi-cloud-platform",
-    title: "Multi-Cloud Training & Serving Platform",
-    summary: "Kubernetes, Docker and CI/CD across AWS, Azure, GCP and Vercel — GPU scheduling for training and inference, with LLMOps monitoring on top.",
-    description: "The infrastructure layer under everything else. Containerized training and serving workloads scheduled on Kubernetes with GPU-aware placement, CI/CD pipelines gating every deploy, and workloads spread across AWS, Azure, GCP and Vercel depending on where the compute and the data live. LLMOps sits on top: vLLM serving, latency and cost monitoring, and quality-drift tracking across model versions and prompt revisions.",
-    tech: ["Kubernetes", "Docker", "CI/CD", "AWS", "Azure", "GCP", "Vercel", "vLLM", "MLflow", "GPU Scheduling"],
-    category: "Infrastructure",
-    featured: true,
-    achievements: [
-      "Training and inference workloads on GPU-scheduled Kubernetes",
-      "CI/CD gating every deploy — rollback incidents down ~40%",
-      "Four cloud targets in production: AWS, Azure, GCP, Vercel",
-      "Latency, cost and quality-drift monitoring across model versions",
-    ],
-    timeline: "2025 – Present",
-    impact: "Research that survives contact with production",
+    id: 'grip-intelligence', title: 'Grip Intelligence', category: 'Vision & robotics', featured: true, status: 'Product development', role: 'Computer vision & full-stack engineering',
+    summary: 'From a swing video to feedback you can act on.',
+    description: 'A golf coaching product that combines pose estimation, swing-event detection and biomechanics measurements with visual feedback. A shared inference pass powers event detection, posture analysis and annotated video, with web and mobile application work around the analysis pipeline.',
+    tech: ['Python', 'MediaPipe', 'Next.js', 'Computer vision', 'Mobile'],
+    image: 'grip.webp', imageAlt: 'Golf swing photography used in the Grip Intelligence product',
+    achievements: ['Detects eight swing events using pose and wrist-trajectory heuristics.', 'Per-joint analysis and fault-coloured skeleton overlays.', 'Reliability gates decide whether a measurement can be graded.', 'Literature-backed scoring separates sourced metrics from provisional thresholds.'],
+    note: 'The swing-event detector is heuristic. Product imagery is illustrative; it is not a captured analysis result.'
   },
   {
-    id: "claimbai-rag-chatbot",
-    title: "Production RAG Customer-Support Chatbot",
-    summary: "Complex RAG (indexing, chunking, embeddings) over a PostgreSQL vector store + LlamaIndex, serving real-time answers with sub-second retrieval.",
-    description: "Built and shipped the core AI of ClaimbAI's customer-support product: a RAG chatbot using Google LLMs via BitNet, with a carefully tuned ingestion pipeline — document indexing, semantic chunking, and embedding strategies that materially improved retrieval relevance and latency. Delivered the full loop: vector store architecture, automated data pipelines, FastAPI backends, and clean chat-widget frontends (popup bubbles and text cards).",
-    tech: ["RAG", "LlamaIndex", "PostgreSQL + pgvector", "BitNet", "Google LLMs", "FastAPI", "CI/CD", "Chat Widgets"],
-    category: "RAG & Retrieval",
-    featured: true,
-    achievements: [
-      "Sub-second retrieval across production knowledge bases",
-      "Improved retrieval relevance via chunking + embedding tuning",
-      "~70% reduction in manual support work through automation",
-      "Chat-widget frontends shipped alongside the backend",
-      "CI/CD pipeline cut rollback incidents ~40%",
-    ],
-    timeline: "Jul 2025 – Present",
-    impact: "Real-time, accurate answers in production — not a demo",
+    id: 'architectai', title: 'ArchitectAI', category: 'Products', featured: true, status: 'Concept design tool', role: 'Constraint solving & product engineering',
+    summary: 'A plot, a brief, and a plan that fits.',
+    description: 'An editable residential concept-design workflow for Islamabad homes. Plot geometry, road orientation, room requirements and dimensional constraints feed a deterministic layout solver, with a 3D house view and exportable architectural documents.',
+    tech: ['React', 'TypeScript', 'Constraint solving', 'PostgreSQL', 'CAD export'],
+    image: 'architectai.webp', imageAlt: 'ArchitectAI generated residential floor plan with room dimensions',
+    achievements: ['Map-selected plots and road-facing site proposals.', 'Deterministic floor plans with editable room and floor requirements.', 'Connected 3D, service proposals and PDF/CAD export workflows.', 'Optional AI critique alongside locally available plan generation.'],
+    note: 'Produces concept designs. Construction-ready structural design, detailed MEP sizing and professional release remain outside the implemented scope.'
   },
   {
-    id: "secure-data-connectors",
-    title: "12+ Secure Connectors for AI-Ready Data",
-    summary: "OAuth/RBAC connectors across Snowflake, Databricks, AWS, Azure, GitHub and Slack — cleaning and organizing tables for reliable RAG ingestion.",
-    description: "Designed, built and maintain the data-ingestion backbone for an AI platform: 12+ secure connectors with OAuth and role-based access control, moving data safely between enterprise platforms. Beyond plumbing, the work includes auditing, cleaning and reorganizing source tables so they're genuinely AI-ready — reliable inputs for vectorization and RAG pipelines rather than garbage-in, garbage-out.",
-    tech: ["OAuth / RBAC", "Snowflake", "Databricks", "AWS", "Azure", "GitHub", "Slack", "ETL Automation", "Python"],
-    category: "Data Engineering",
-    featured: false,
-    achievements: [
-      "12+ production connectors with secure OAuth flows",
-      "RBAC enforcement on every data path",
-      "Data auditing + cleaning for reliable vectorization",
-      "Automated pipelines feeding downstream RAG systems",
-    ],
-    timeline: "2025 – Present",
-    impact: "Enterprise data made safely consumable by AI systems",
+    id: 'slm-post-training', title: 'SLM Post-Training', category: 'AI & agents', featured: false, status: 'Professional work', role: 'Post-training lead at ClaimbAI',
+    summary: 'Fine-tuning, preference optimisation, and rewards for tool use.',
+    description: 'Own the post-training loop for an in-house small language model, spanning supervised fine-tuning, GRPO/PPO optimisation through Hugging Face TRL, reward-model training, rollout collection and dataset versioning.',
+    tech: ['PyTorch', 'TRL', 'SFT', 'GRPO / PPO', 'vLLM'],
+    achievements: ['End-to-end supervised and preference-based training workflows.', 'Formal verifiers and milestone rewards for multi-step tool use.', 'Auditable scoring of tool selection, arguments and recovery from failed calls.']
   },
   {
-    id: "voice-agent-pipeline",
-    title: "Multimodal Voice Agents & Local SLM",
-    summary: "Voice → ASR → embeddings → agent pipelines, plus a local small language model for on-prem knowledge and private retrieval.",
-    description: "Designed multimodal voice agents that take raw speech through ASR, embedding and agent-reasoning stages to produce grounded, actionable responses. Paired with a locally hosted SLM so sensitive knowledge never leaves the premises — private retrieval for organizations that can't ship data to a cloud LLM.",
-    tech: ["Voice Agents", "Whisper / ASR", "Embeddings", "Local SLM", "Ollama", "Agent Workflows", "Python"],
-    category: "Agent Systems",
-    featured: false,
-    achievements: [
-      "End-to-end voice → ASR → embeddings → agent pipeline",
-      "Local SLM deployment for on-prem private retrieval",
-      "Multimodal input handling in production workflows",
-    ],
-    timeline: "2025 – Present",
-    impact: "Voice-first AI with privacy-preserving local inference",
+    id: 'rag-connectors', title: 'Enterprise RAG & Connectors', category: 'AI & agents', featured: false, status: 'Professional work', role: 'AI & data infrastructure',
+    summary: 'Enterprise knowledge connected to grounded answers.',
+    description: 'Architected production retrieval infrastructure at ClaimbAI, from indexing, chunking and embedding strategy to secure ingestion. Built and maintained 12+ connectors across platforms including Snowflake, Databricks, AWS, Azure, GitHub and Slack.',
+    tech: ['LlamaIndex', 'pgvector', 'PostgreSQL', 'OAuth', 'RBAC'],
+    achievements: ['Retrieval and ingestion architecture for enterprise knowledge.', '12+ secure connectors with OAuth and role-based access.', 'Private retrieval and local small-language-model workflows.']
   },
   {
-    id: "real-time-tracking-system",
-    title: "Real-Time Multi-Object Tracking on Jetson Orin",
-    summary: "Production tracking with YOLOv9–v11, GOTURN, CSRT and SAMURAI — TensorRT-optimized inference on NVIDIA Jetson Orin (aarch64).",
-    description: "Engineered a high-performance computer-vision pipeline for industrial deployment: multiple tracking algorithms fused with GPU acceleration and ARM64 tuning for real-time performance on embedded hardware. Optimized via TensorRT, pruning and quantization, with C++/Qt dashboards (40+ screens) surfacing live telemetry.",
-    tech: ["YOLOv9–v11", "GOTURN", "CSRT", "SAMURAI", "TensorRT", "ONNX", "C++", "Qt", "Jetson Orin", "ARM64"],
-    category: "Computer Vision",
-    featured: false,
-    achievements: [
-      "~30% inference throughput uplift via TensorRT + quantization",
-      "25% reduction in false positives",
-      "40+ screen C++/Qt telemetry dashboards — debugging time down 90%",
-      "System integration across firmware and compute nodes; uptime up 95%",
-    ],
-    timeline: "Jan 2025 – Oct 2025",
-    impact: "Real-time precision tracking on power-constrained edge hardware",
+    id: 'care-companion', title: 'Care Companion', category: 'Products', featured: false, status: 'MVP', role: 'AI workflow & application engineering',
+    summary: 'An accessible front door to care for older adults.',
+    description: 'A healthcare-assistance MVP built around large, simple patient interactions. Voice and text intake lead into follow-up questions, structured reports and doctor routing, with separate patient, doctor and admin workflows.',
+    tech: ['Next.js', 'TypeScript', 'PostgreSQL', 'Vercel AI SDK'],
+    image: 'care-companion.webp', imageAlt: 'Care Companion patient interface',
+    achievements: ['Structured symptom intake and AI-assisted follow-up questions.', 'Doctor queues, specialty/availability matching and response workflows.', 'Patient timelines, health profiles and family-access flows.'],
+    note: 'Healthcare-assistance prototype; clinical validation is not claimed.'
   },
   {
-    id: "ai-agent-ecosystem",
-    title: "AI Agent Ecosystem for Business Automation",
-    summary: "Multi-agent automation across Sales, HR, Marketing and Engineering — a central controller orchestrating 10–15 specialized agents per department.",
-    description: "Architected a department-spanning multi-agent system where a central controller routes work to 10–15 specialized agents per department. Each agent owns a narrow, well-defined task — lead triage, candidate screening, content drafting, ticket routing — with the controller handling orchestration, hand-offs and escalation to humans.",
-    tech: ["Multi-Agent Systems", "Orchestration", "n8n", "LangChain", "RAG", "Workflow Automation", "Node.js"],
-    category: "Agent Systems",
-    featured: false,
-    achievements: [
-      "Central controller orchestrating 40+ agents across 4 departments",
-      "~60% reduction in repetitive manual workload",
-      "RAG-powered knowledge retrieval per department",
-      "Human-in-the-loop escalation paths",
-    ],
-    impact: "~60% of repetitive work automated across departments",
+    id: 'virtual-tour', title: 'Virtual Tour Studio', category: 'Products', featured: false, status: 'Frontend deployed', role: 'Capture workflow & platform engineering',
+    summary: 'Turn phone captures into connected panoramic walkthroughs.',
+    description: 'A mobile-browser capture experience that guides users through panorama targets and links rooms through marked exits. Includes a multilingual frontend, installable PWA and tour publishing/embed workflows.',
+    tech: ['TypeScript', 'PWA', 'Panoramas', 'Docker'],
+    image: 'virtual-tour.webp', imageAlt: 'Virtual Tour Studio panoramic walkthrough interface',
+    achievements: ['Guided capture planning adapts to camera coverage and frame shape.', 'Linked photographic panoramas with room-to-room navigation.', 'Multilingual interface and browser-installable application.'],
+    note: 'The frontend is deployed. Production tour processing still requires a persistent HTTPS Docker host.'
   },
   {
-    id: "claude-mcp-client",
-    title: "Claude Desktop MCP Client",
-    summary: "Local Model Context Protocol client giving Claude Desktop safe read/write/delete access to files on the local machine.",
-    description: "Built a local MCP (Model Context Protocol) client for Claude Desktop — the open standard now used across AI tooling for connecting models to external systems. The client exposes controlled file-system operations (add, remove, read) so the model can act on local files without uncontrolled access.",
-    tech: ["MCP", "Claude Desktop", "TypeScript", "Local Tooling", "File System APIs"],
-    category: "AI Tooling",
-    featured: false,
-    achievements: [
-      "Implements the MCP spec for local file operations",
-      "Scoped, permissioned access — no blanket file-system exposure",
-      "Daily-driver tooling for AI-native development",
-    ],
-    impact: "Hands-on with the protocol powering the current agent-tooling wave",
+    id: 'valuation-explorer', title: 'Valuation Explorer', category: 'Data & infrastructure', featured: false, status: 'Private application', role: 'Financial modelling & product engineering',
+    summary: 'See exactly what your valuation assumptions imply.',
+    description: 'A private analysis app for businesses, property and listed groups in Pakistan. Traceable DCF, multiples and asset valuations sit alongside sum-of-the-parts modelling, sensitivity analysis and portfolio scenarios.',
+    tech: ['TypeScript', 'Financial models', 'Document extraction', 'Scenario analysis'],
+    achievements: ['Valuation workflows across 18 industries.', 'Reverse valuation solves for assumptions implied by a target value.', 'Document-derived inputs retain supporting page quotes for review.', 'Portfolio concentration and what-if analysis without trade execution.']
   },
   {
-    id: "personal-assistant-agent",
-    title: "Personal Assistant AI Agent",
-    summary: "OpenAI + n8n assistant managing calendars, Gmail, Telegram, WhatsApp and day-to-day tasks through one conversational interface.",
-    description: "Developed a personal assistant agent wired into real life: calendar management, email triage and drafting in Gmail, and messaging across Telegram and WhatsApp — all orchestrated with n8n workflows and OpenAI's API, with webhook-based integrations keeping everything in sync.",
-    tech: ["OpenAI API", "n8n", "Gmail API", "Telegram", "WhatsApp", "Webhooks", "Calendar APIs"],
-    category: "Agent Systems",
-    featured: false,
-    achievements: [
-      "Single conversational interface across 5+ services",
-      "Webhook-driven, event-based automation",
-      "Email triage and calendar scheduling without manual input",
-    ],
-    impact: "A working agent handling real personal logistics daily",
+    id: 'decision-os', title: 'Decision OS / Rodi AI', category: 'AI & agents', featured: false, status: 'Product development', role: 'Content intelligence workflows',
+    summary: 'AI-assisted recommendations for YouTube creators.',
+    description: 'A content-intelligence workspace for YouTube channels, connecting creator workflows, channel analysis and AI-assisted recommendations. The local application includes a React frontend, backend services and an MCP component.',
+    tech: ['React', 'Node.js', 'MCP', 'Content intelligence'],
+    achievements: ['Creator-facing analysis and recommendation workflows.', 'Separate frontend, backend and MCP integration components.']
   },
   {
-    id: "local-research-agent",
-    title: "Local Research AI Agent",
-    summary: "Fully local research agent — n8n + Ollama + SERP API with a PostgreSQL vector DB for knowledge retrieval and persistent memory.",
-    description: "Built a local-only research agent that searches the web via SERP API, reasons with locally hosted models through Ollama, and stores everything it learns in a PostgreSQL vector database — giving it persistent memory across sessions while keeping all data on-machine.",
-    tech: ["Ollama", "n8n", "SERP API", "PostgreSQL + pgvector", "Local LLMs", "Persistent Memory"],
-    category: "Agent Systems",
-    featured: false,
-    achievements: [
-      "100% local inference — no data leaves the machine",
-      "Persistent vector-DB memory across research sessions",
-      "Automated search → synthesize → store loop",
-    ],
-    impact: "Private, repeatable research automation",
+    id: 'ciara', title: 'Ciara', category: 'Products', featured: false, status: 'Platform development', role: 'Backend & real-time architecture',
+    summary: 'The real-time systems behind rides and deliveries.',
+    description: 'Ride-hailing backend and socket architecture across car, bike, shared-ride and food workflows. Related services cover driver onboarding, identity/document verification, live locations and AI-assisted customer support.',
+    tech: ['Node.js', 'TypeScript', 'MongoDB', 'Redis', 'WebSockets'],
+    achievements: ['Geospatial driver matching, driver rooms and booking flows.', 'Location broadcasting and Redis geospatial queries.', 'Driver signup with document extraction and identity-verification integration.', 'L1 support tooling with escalation to human support.']
   },
   {
-    id: "data-warehouse-transformation",
-    title: "Enterprise Data Warehouse (200M Rows)",
-    summary: "Converted a 200M-row dataset across ~200 tables into a normalized 3NF warehouse with star-schema semantic layers for analytics and forecasting.",
-    description: "Led a major data transformation: untangling ~200 source tables into a clean 3NF data warehouse, then building star-schema semantic layers on top for analytics and forecasting. Automated ETL with AWS Glue + SQL so dashboards refresh without manual intervention.",
-    tech: ["SQL", "AWS Glue", "ETL", "3NF Modeling", "Star Schema", "Data Warehousing", "Forecasting"],
-    category: "Data Engineering",
-    featured: false,
-    achievements: [
-      "200M rows / ~200 tables normalized to 3NF",
-      "Star-schema semantic layers for analytics & forecasting",
-      "Automated ETL — manual interventions cut by 4 hours",
-      "Faster dashboard refresh for downstream teams",
-    ],
-    timeline: "Jul 2024 – Dec 2024",
-    impact: "One clean warehouse where 200 messy tables used to be",
+    id: 'frontier-fleet', title: 'Frontier Fleet', category: 'Products', featured: false, status: 'In development', role: 'Full-stack PWA engineering',
+    summary: 'A shared home for truckers, roadside help and fleet tracking.',
+    description: 'An installable community application that brings a social feed, roadside assistance and lightweight fleet tracking into one experience, backed by a Cloudflare Worker and PostgreSQL.',
+    tech: ['PWA', 'Cloudflare Workers', 'PostgreSQL', 'TypeScript'],
+    achievements: ['Community, roadside assistance and tracking in one installable app.', 'Shared application/API deployment through a Cloudflare Worker.']
   },
   {
-    id: "pepsi-automation-project",
-    title: "Pepsi KSA & UAE Analytics Automation",
-    summary: "Cut the analytics refresh cycle from 1 week to 3 days (57%) and required team size from 6 to 2 through query tuning and scripting.",
-    description: "Re-engineered the analytics workflow behind Pepsi's KSA and UAE reporting: query optimization, refresh-pipeline automation and custom scripting that removed most of the manual steps from a week-long cycle.",
-    tech: ["Tableau", "SQL", "Query Optimization", "Pipeline Automation", "Scripting"],
-    category: "Analytics",
-    featured: false,
-    achievements: [
-      "Refresh cycle: 1 week → 3 days (57% reduction)",
-      "Team requirement: 6 people → 2",
-      "Automated refresh pipelines replacing manual reporting",
-    ],
-    timeline: "Aug 2023 – Jul 2024",
-    impact: "Same insight, half the time, a third of the team",
+    id: 'voice-agents', title: 'Voice Agents: Aria & Flowly', category: 'AI & agents', featured: false, status: 'Prototypes & product work', role: 'Voice pipeline & conversational UX',
+    summary: 'Speech, reasoning and tools in one conversational loop.',
+    description: 'Voice-agent work spanning an AI front desk for aesthetic clinics, a local voice sales assistant and telephony/SIP integration experiments. Pipelines connect speech recognition, LLM reasoning and text-to-speech with conversational state.',
+    tech: ['FastAPI', 'Whisper', 'Text-to-speech', 'Next.js', 'Tool calling'],
+    achievements: ['Microphone input, transcript display and streamed voice playback.', 'Discovery and follow-up flows with session state and lead capture.', 'Clinic-facing product site and constrained conversational sandbox.'],
+    note: 'Capabilities vary by prototype. Lead capture does not imply a completed calendar-booking integration.'
   },
   {
-    id: "sports-analytics-platform",
-    title: "Sports Performance Analytics Platform",
-    summary: "Predictive models for player positioning and performance, with interactive dashboards used by coaching staff.",
-    description: "Architected and deployed predictive models for player positioning and performance metrics, paired with interactive dashboards that coaching staff actually used in their weekly cycle — cutting match-analysis time by 45% and informing tactical decisions with data.",
-    tech: ["OpenCV", "PyTorch", "Predictive Modeling", "Computer Vision", "React", "Dashboards"],
-    category: "Computer Vision",
-    featured: false,
-    achievements: [
-      "45% reduction in match-analysis time",
-      "Player positioning + performance prediction models",
-      "Interactive dashboards adopted by coaching staff",
-    ],
-    impact: "Tactical decisions backed by data, not just film review",
+    id: 'multi-agent-automation', title: 'Multi-Agent Business Automation', category: 'AI & agents', featured: false, status: 'Engineering project', role: 'Agent orchestration',
+    summary: 'Specialised agents with explicit handoffs and recovery.',
+    description: 'A central controller routes work across specialised agents for Sales, HR, Marketing and Engineering. The engineering focus is on state handoff, retries and workflow automation across multi-step tasks.',
+    tech: ['Python', 'Agent orchestration', 'Workflow automation'],
+    achievements: ['Departmental workflows with 10–15 specialised agents per department.', 'Explicit retries and shared task-state handoffs.']
   },
   {
-    id: "adaptive-language-learning",
-    title: "Adaptive Language Learning Web App",
-    summary: "Firebase + Gemini API — LLM-curated lessons, conversational practice and progress tracking that adapts to the learner.",
-    description: "Created a language-learning platform where the curriculum isn't fixed: Gemini curates lessons based on each learner's progress, conversational practice sessions adapt in difficulty, and progress tracking closes the loop on what to teach next.",
-    tech: ["Firebase", "Gemini API", "React", "LLM Curation", "Conversational AI"],
-    category: "AI Application",
-    featured: false,
-    achievements: [
-      "LLM-curated, per-learner lesson plans",
-      "Conversational practice with adaptive difficulty",
-      "Full progress-tracking feedback loop",
-    ],
-    impact: "A curriculum that rewrites itself around the learner",
+    id: 'local-research-agent', title: 'Local Research Agent & MCP', category: 'AI & agents', featured: false, status: 'Engineering project', role: 'Local agents & tool integration',
+    summary: 'Research tools and memory on a local AI stack.',
+    description: 'Local agent experiments combine n8n, Ollama, web search and PostgreSQL vector retrieval with persistent memory. A companion MCP client explores scoped filesystem access, tool schemas, permission checks and error handling.',
+    tech: ['n8n', 'Ollama', 'PostgreSQL', 'MCP'],
+    achievements: ['Persistent retrieval and memory across research sessions.', 'Permissioned tool access and explicit agent failure handling.']
   },
   {
-    id: "face-recognition-software",
-    title: "Face Recognition Pipeline",
-    summary: "Transfer learning on AlexNet (MATLAB) — 92% classification accuracy on a custom dataset of 10,000+ images.",
-    description: "Developed a high-performance facial-recognition pipeline using transfer learning on AlexNet, achieving 92% classification accuracy on a custom 10,000+ image dataset. Optimized batch inference to lift throughput by 35%.",
-    tech: ["MATLAB", "Transfer Learning", "AlexNet", "Deep Learning", "Batch Inference"],
-    category: "Computer Vision",
-    featured: false,
-    achievements: [
-      "92% classification accuracy on 10,000+ custom images",
-      "35% batch-inference throughput improvement",
-      "Robust performance across lighting conditions",
-    ],
-    impact: "Reliable identification at production-relevant accuracy",
+    id: 'mybutler', title: 'MyButler', category: 'AI & agents', featured: false, status: 'Prototype', role: 'Assistant application development',
+    summary: 'A personal-assistant interface with an ADK email-agent experiment.',
+    description: 'A React assistant application with a separate email-agent implementation using Google ADK. The project explores personal workflow assistance through a web interface and an agent API.',
+    tech: ['React', 'Google ADK', 'Python'],
+    achievements: ['Assistant frontend and a separately runnable email-agent service.', 'Agent development through ADK web and API server workflows.']
   },
+  {
+    id: 'digital-product-architect', title: 'Digital Product Architect', category: 'AI & agents', featured: false, status: 'Prototype', role: 'Data pipelines & generation workflows',
+    summary: 'Audience research connected to product concepts and sales copy.',
+    description: 'An application that connects social-profile research with a catalogue of digital products, then generates an audience profile, product outline and marketplace listing. Built around Python collection tools and a Next.js application.',
+    tech: ['Python', 'Next.js', 'Prisma', 'LLMs'],
+    achievements: ['Catalogue collection and audience-language analysis.', 'Structured generation of product outlines and listing copy.'],
+    note: 'An experimental research workflow; commercial outcomes are not claimed.'
+  },
+  {
+    id: 'wavebook', title: 'Wavebook', category: 'Data & infrastructure', featured: false, status: 'Research application', role: 'Backtesting & analysis tooling',
+    summary: 'A strategy lab for testing assumptions against market history.',
+    description: 'A local backtesting app for mechanical, book-inspired strategies, with market selection, historical test periods and a separate paper-execution approval workflow.',
+    tech: ['Python', 'Backtesting', 'Time series', 'Risk analysis'],
+    achievements: ['Six mechanical strategies with configurable historical studies.', 'Daily and aggregated weekly market histories.', 'Separate approval queue and paper-execution dashboard.'],
+    note: 'Research tooling. Private execution tests and strategy admission remain incomplete; investment performance is not claimed.'
+  },
+  {
+    id: 'data-warehouse', title: '200M-Row Warehouse Transformation', category: 'Data & infrastructure', featured: false, status: 'Professional work', role: 'Data architecture & delivery at AIGENIUS',
+    summary: 'From fragmented tables to a coherent analytics foundation.',
+    description: 'Led a transformation of approximately 200 million rows across roughly 200 tables into a normalised 3NF warehouse and star-schema semantic layers for analytics, forecasting and dashboards.',
+    tech: ['AWS Glue', 'SQL', '3NF', 'Dimensional modelling'],
+    achievements: ['Normalised warehouse architecture and automated ETL.', 'Star-schema analytical layers for forecasting and reporting.']
+  },
+  {
+    id: 'ml-platform', title: 'Cloud Training & Model Serving', category: 'Data & infrastructure', featured: false, status: 'Professional work', role: 'MLOps & platform engineering',
+    summary: 'The infrastructure between a trained model and a usable system.',
+    description: 'Deployment and platform work across AWS, Azure, GCP and Vercel, with containerised workloads, GPU scheduling, CI/CD and monitoring for model versions and prompt revisions.',
+    tech: ['Kubernetes', 'Docker', 'vLLM', 'MLflow', 'CI/CD'],
+    achievements: ['GPU-aware deployment and model serving workflows.', 'Quality and drift tracking across models and prompt revisions.']
+  },
+  {
+    id: 'edge-vision', title: 'Real-Time Edge Vision', category: 'Vision & robotics', featured: false, status: 'Professional work', role: 'Software engineering at COMCEPT',
+    summary: 'Detection and tracking within real hardware constraints.',
+    description: 'Developed real-time computer-vision and tracking systems on NVIDIA Jetson Orin, integrating C++/Qt interfaces, multithreaded processing and optimised inference under latency, memory and power constraints.',
+    tech: ['C++', 'Qt / QML', 'YOLO', 'TensorRT', 'Jetson Orin'],
+    achievements: ['Model pruning and quantisation improved throughput by about 30%.', 'Reduced false positives by about 25%.', 'Integrated telemetry, Linux compute nodes and networked hardware.']
+  },
+  {
+    id: 'agri-bot', title: 'Autonomous Agri-bot', category: 'Vision & robotics', featured: false, status: 'NUST final-year project', role: 'Mechatronics design & integration',
+    summary: 'A modular robot for agricultural tasks.',
+    description: 'Designed and manufactured a multipurpose agricultural robot with seeding/drilling modules, autonomous navigation, obstacle avoidance and a mobile control application during a BE in Mechatronics Engineering.',
+    tech: ['CAD / ANSYS', 'Robotics', 'Sensors', 'Control systems'],
+    achievements: ['Mechanical design, modular tooling and sensor integration.', 'Autonomous movement and mobile control.', 'A grades in both final-year project stages.']
+  },
+  {
+    id: 'robotics-lab', title: 'Robotics & Vision Explorations', category: 'Vision & robotics', featured: false, status: 'Academic & research projects', role: 'Engineering & experimentation',
+    summary: 'Robot control, recognition and movement analysis.',
+    description: 'Earlier engineering work includes a fabricated six-degree-of-freedom robotic arm, MATLAB/OpenCV face recognition, and microrobot movement-analysis tools during an NCRA research internship.',
+    tech: ['MATLAB', 'OpenCV', 'Arduino', 'C++', 'CAD'],
+    achievements: ['Six-axis arm with servo actuation and Arduino control.', 'AlexNet transfer learning achieved 92% accuracy on a custom face dataset.', 'MATLAB GUI and real-time C++ image processing for microrobot experiments.']
+  },
+  {
+    id: 'edu-platform', title: 'EduPlatform', category: 'Products', featured: false, status: 'Application project', role: 'Full-stack learning platform',
+    summary: 'Live teaching, course access and real-time questions.',
+    description: 'A learning platform with teacher-led live lectures, student course access, real-time Q&A and course-based payment workflows.',
+    tech: ['Next.js', 'PostgreSQL', 'Prisma', 'LiveKit', 'Stripe'],
+    achievements: ['Teacher and student experiences with live video.', 'Course payments, calendars and reporting interfaces.']
+  },
+  {
+    id: 'web-platforms', title: 'Aethelos & Business Websites', category: 'Web experiences', featured: false, status: 'Website projects', role: 'Design & frontend engineering',
+    summary: 'Distinctive websites for a growing collection of businesses.',
+    description: 'Website work includes the Aethelos product directory, AZenthera AI studio, Baseline Consulting Group, Lattice AI and Pak Vendi. Projects range from buildless HTML sites to typed, data-driven Next.js applications.',
+    tech: ['Next.js', 'React', 'TypeScript', 'HTML / CSS'],
+    achievements: ['Aethelos directory with dedicated product pages and shared navigation.', 'Baseline service catalogue spanning eight practice areas.', 'Reusable typed content and responsive business interfaces.']
+  },
+  {
+    id: 'research-data-tools', title: 'Research & Data Collection Tools', category: 'Data & infrastructure', featured: false, status: 'Local tools', role: 'Data collection & analysis',
+    summary: 'Repeatable collection pipelines and searchable research data.',
+    description: 'Local tools include a resumable geographic restaurant-data collector, a timeline collection dashboard, and structured intelligence assets for AI advisory research.',
+    tech: ['Python', 'Playwright', 'FastAPI', 'SQLite', 'React'],
+    achievements: ['Geographic collection with checkpoints, retries and aggregation.', 'Local data storage and searchable dashboard interfaces.', 'Structured case studies, benchmarks and research datasets.']
+  }
 ];
-
-export const getFeaturedProjects = () => projects.filter(p => p.featured);
+export const getFeaturedProjects = () => projects.filter((project) => project.featured);
 export const getAllProjects = () => projects;
-export const getProjectById = (id: string) => projects.find(p => p.id === id);

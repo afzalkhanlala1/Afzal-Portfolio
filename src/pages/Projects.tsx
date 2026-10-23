@@ -1,201 +1,59 @@
-import { useMemo, useState } from "react";
-import { ArrowLeft, ArrowUpRight, TrendingUp } from "lucide-react";
-import { getAllProjects } from "@/data/projects";
-import { useScrollReveal } from "@/hooks/use-scroll-reveal";
+import { Link, useSearchParams } from 'react-router-dom';
+import { Search, ArrowLeft, ArrowRight, ArrowUpRight, X } from 'lucide-react';
+import { projects } from '@/data/projects';
+import { ChoiceBar, PageHeading, ProjectVisual } from '@/components/Portfolio';
 
-const Projects = () => {
-  useScrollReveal();
-  const projects = getAllProjects();
-  const categories = useMemo(
-    () => ["All", ...Array.from(new Set(projects.map((p) => p.category)))],
-    [projects]
-  );
-  const [filter, setFilter] = useState<string>("All");
-  const visible =
-    filter === "All" ? projects : projects.filter((p) => p.category === filter);
-
-  return (
-    <div className="min-h-screen bg-background">
-      {/* Slim nav */}
-      <nav className="sticky top-0 z-40 backdrop-blur-md bg-background/85 border-b border-border">
-        <div className="container flex items-center justify-between h-16">
-          <button
-            onClick={() => (window.location.href = import.meta.env.BASE_URL)}
-            className="group inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.18em] uppercase hover:text-accent transition-colors"
-          >
-            <ArrowLeft className="h-4 w-4 group-hover:-translate-x-0.5 transition-transform" />
-            Back to portfolio
-          </button>
-          <span className="font-display italic text-2xl">
-            Afzal<span className="text-accent">.</span>
-          </span>
-          <span className="hidden sm:block font-mono text-[11px] tracking-[0.18em] uppercase text-muted-foreground">
-            Archive · 2026
-          </span>
+export const pageSize = 4;
+const categories = [...new Set(projects.map(project => project.category))];
+const shortNames: Record<string, string> = { 'AI & agents': 'AI & agents', 'Products': 'Products', 'Vision & robotics': 'Vision & robotics', 'Data & infrastructure': 'Data & infrastructure', 'Web experiences': 'Web experiences' };
+export default function Projects() {
+  const [params, setParams] = useSearchParams();
+  const query = params.get('q') || '';
+  const requested = params.get('category') || 'All work';
+  const category = categories.includes(requested) ? requested : 'All work';
+  const view = params.get('view') === 'map' ? 'Map' : 'Index';
+  const filtered = projects.filter(project => (category === 'All work' || project.category === category) && `${project.title} ${project.summary} ${project.tech.join(' ')}`.toLowerCase().includes(query.toLowerCase()));
+  const pageCount = Math.max(1, Math.ceil(filtered.length / pageSize));
+  const page = Math.min(pageCount, Math.max(1, Number.parseInt(params.get('page') || '1', 10) || 1));
+  const visible = filtered.slice((page - 1) * pageSize, page * pageSize);
+  const total = projects.length;
+  function update(key: string, value: string) {
+    const next = new URLSearchParams(params);
+    if (value && value !== 'All work') next.set(key, value); else next.delete(key);
+    if (key !== 'page') next.delete('page');
+    setParams(next, { replace: key === 'q', preventScrollReset: true });
+  }
+  function pickCategory(value: string) { update('category', value); }
+  return <main id="main-content" className="page shell work-page">
+    <PageHeading title="A working collection."><p>Products, experiments, and a few very deep rabbit holes.<br/>{total} projects. Find your way in.</p></PageHeading>
+    <div className="collection-layout">
+      <aside className="collection-sidebar">
+        <div className="sidebar-heading"><h2>What I build</h2><button className="plain-button" aria-pressed={category === 'All work'} onClick={() => pickCategory('All work')}>All {total}</button></div>
+        <div className="category-chart" role="group" aria-label="Filter by project category">
+          {categories.map((item, index) => {
+            const count = projects.filter(project => project.category === item).length;
+            return <button className={`category-bar category-${index}`} key={item} aria-pressed={category === item} onClick={() => pickCategory(item)}>
+              <span>{shortNames[item]}<strong>{count}</strong></span><span className="bar-track"><span style={{ width: `${count / Math.max(...categories.map(c => projects.filter(p => p.category === c).length)) * 100}%` }}/></span>
+            </button>;
+          })}
         </div>
-      </nav>
-
-      {/* Hero */}
-      <section className="relative pt-24 md:pt-32 pb-20 rule-bottom overflow-hidden">
-        <div className="absolute inset-0 grid-backdrop opacity-50 pointer-events-none" />
-        <div className="container relative">
-          <div className="grid grid-cols-12 gap-x-6 lg:gap-x-10" data-reveal>
-            <div className="col-span-12 md:col-span-3">
-              <div className="section-eyebrow">A / Archive</div>
-            </div>
-            <div className="col-span-12 md:col-span-9 flex flex-col gap-8">
-              <h1 className="font-display tracking-tight leading-[0.92] text-[clamp(3rem,9vw,8rem)]">
-                Project <em className="text-accent not-italic">archive</em> —
-                <br />
-                in full.
-              </h1>
-              <p className="text-muted-foreground font-mono text-[12.5px] tracking-[0.04em] max-w-[60ch]">
-              A complete record of shipped systems and explorations:
-              post-training pipelines, evaluation infrastructure, RAG,
-              agent tooling, computer-vision stacks, warehouses — and a
-              few side experiments that earned their keep.
-              </p>
-            </div>
-          </div>
-
-          {/* Filters */}
-          <div className="mt-14 flex flex-wrap gap-2 border-t border-border pt-8">
-            {categories.map((c) => (
-              <button
-                key={c}
-                onClick={() => setFilter(c)}
-                className={`font-mono text-[11px] tracking-[0.18em] uppercase px-3 py-2 border transition-colors ${
-                  filter === c
-                    ? "bg-foreground text-background border-foreground"
-                    : "border-border hover:border-foreground"
-                }`}
-              >
-                {c}
-              </button>
-            ))}
-            <span className="ml-auto self-end font-mono text-[11px] tracking-[0.18em] uppercase text-muted-foreground tabular">
-              {visible.length} / {projects.length}
-            </span>
-          </div>
-        </div>
-      </section>
-
-      {/* List */}
-      <section className="py-20 md:py-28">
-        <div className="container">
-          <ol className="grid grid-cols-1 lg:grid-cols-2 gap-px bg-border border border-border">
-            {visible.map((p, i) => (
-              <li
-                key={p.id}
-                className="bg-card p-7 md:p-9 flex flex-col group hover:bg-surface transition-colors"
-              >
-                <div className="flex items-start justify-between mb-6">
-                  <span className="font-mono text-[10.5px] tracking-[0.18em] uppercase text-muted-foreground tabular">
-                    / {String(i + 1).padStart(2, "0")} · {p.category}
-                  </span>
-                  {p.featured && (
-                    <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-accent border border-accent/40 px-2 py-1">
-                      Featured
-                    </span>
-                  )}
-                </div>
-
-                <h2 className="font-display text-3xl md:text-[2.4rem] leading-[1.05] tracking-tight mb-4 group-hover:text-accent transition-colors">
-                  {p.title}
-                </h2>
-
-                {p.timeline && (
-                  <span className="font-mono text-[11px] tracking-[0.16em] uppercase text-muted-foreground tabular mb-3">
-                    {p.timeline}
-                  </span>
-                )}
-
-                <p className="text-muted-foreground leading-relaxed mb-6">
-                  {p.description}
-                </p>
-
-                {p.achievements && p.achievements.length > 0 && (
-                  <div className="mb-6">
-                    <div className="flex items-center gap-2 font-mono text-[10.5px] tracking-[0.2em] uppercase text-muted-foreground mb-3">
-                      <TrendingUp className="h-3.5 w-3.5 text-accent" />
-                      Highlights
-                    </div>
-                    <ul className="space-y-2">
-                      {p.achievements.map((a) => (
-                        <li
-                          key={a}
-                          className="flex items-baseline gap-3 text-sm text-foreground/80"
-                        >
-                          <span className="font-mono text-[10px] text-accent shrink-0 tabular pt-1">
-                            +
-                          </span>
-                          <span>{a}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-
-                {p.impact && (
-                  <div className="mb-6 border-l-2 border-accent pl-4 py-1">
-                    <div className="font-mono text-[10.5px] tracking-[0.2em] uppercase text-accent mb-1">
-                      Impact
-                    </div>
-                    <p className="text-sm text-foreground/80">{p.impact}</p>
-                  </div>
-                )}
-
-                <div className="flex flex-wrap gap-2 mb-8">
-                  {p.tech.map((t) => (
-                    <span key={t} className="tag">{t}</span>
-                  ))}
-                </div>
-
-                <a
-                  href="https://github.com/afzalkhanlala1"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-auto group/cta inline-flex items-center justify-between border-t border-border pt-5 font-mono text-[11px] tracking-[0.18em] uppercase hover:text-accent transition-colors"
-                >
-                  Source / details
-                  <ArrowUpRight className="h-4 w-4 group-hover/cta:-translate-y-0.5 group-hover/cta:translate-x-0.5 transition-transform" />
-                </a>
-              </li>
-            ))}
-          </ol>
-
-          {/* CTA */}
-          <div className="mt-20 grid grid-cols-12 gap-x-6 lg:gap-x-10 items-center bg-surface border border-border p-10 md:p-14">
-            <div className="col-span-12 md:col-span-8">
-              <div className="section-eyebrow mb-4">Next step</div>
-              <h3 className="font-display text-3xl md:text-[2.6rem] leading-tight tracking-tight max-w-[28ch]">
-                Like what you see? Let's talk through your{" "}
-                <em className="text-accent not-italic">next system</em>.
-              </h3>
-            </div>
-            <div className="col-span-12 md:col-span-4 flex flex-col sm:flex-row md:flex-col gap-3 mt-8 md:mt-0">
-              <button
-                onClick={() =>
-                  (window.location.href = `${import.meta.env.BASE_URL}#contact`)
-                }
-                className="btn-ink"
-              >
-                Get in touch
-                <ArrowUpRight className="h-4 w-4" />
-              </button>
-              <a
-                href={`${import.meta.env.BASE_URL}Afzal_Khans_Resume.pdf`}
-                download
-                className="btn-ghost-ink"
-              >
-                Download résumé
-              </a>
-            </div>
-          </div>
-        </div>
+        <p className="chart-note">Project counts, grouped by focus.<br/>Choose a bar to explore that part of the collection.</p>
+        <Link className="sidebar-note" to="/lab"><span>Want to see how I think?</span><strong>Try the playground <ArrowUpRight size={16}/></strong></Link>
+      </aside>
+      <section className="collection-content" aria-label="Project collection">
+        <div className="collection-toolbar"><div className="search-box"><Search size={17}/><label className="sr-only" htmlFor="project-search">Search projects or technologies</label><input id="project-search" type="search" value={query} onChange={event => update('q', event.target.value)} placeholder="Find a project or a technology"/>{query && <button className="icon-button" aria-label="Clear search" onClick={() => update('q', '')}><X size={16}/></button>}</div><ChoiceBar label="Collection view" choices={['Index', 'Map']} value={view} onChange={value => update('view', value.toLowerCase())}/></div>
+        <div className="results-heading"><span aria-live="polite">{category} / {filtered.length} {filtered.length === 1 ? 'project' : 'projects'}</span>{category !== 'All work' && <button className="plain-button" onClick={() => pickCategory('All work')}>Clear category</button>}</div>
+        {view === 'Map' && filtered.length > 0 ? <div className="project-map" aria-label="Project categories grouped by focus">
+          {categories.filter(item => filtered.some(project => project.category === item)).map(item => {
+            const members = filtered.filter(project => project.category === item);
+            return <section className={`map-region category-${categories.indexOf(item)}`} key={item} style={{ flexGrow: members.length }}><h2>{item}<span>{members.length}</span></h2><div>{members.map(project => <Link key={project.id} to={`/projects/${project.id}`}>{project.title}<ArrowUpRight size={13}/></Link>)}</div></section>;
+          })}
+        </div> : <>
+          <div className="archive-grid">{visible.map(project => <article className="archive-card" key={project.id}><Link className="archive-image" to={`/projects/${project.id}`} aria-label={`Explore ${project.title}`}><ProjectVisual project={project}/></Link><div className="archive-copy"><h2><Link to={`/projects/${project.id}`}>{project.title}</Link></h2><p>{project.summary}</p><div><span>{project.status}</span><Link to={`/projects/${project.id}`} aria-label={`Read about ${project.title}`}><ArrowUpRight size={19}/></Link></div></div></article>)}</div>
+          {!filtered.length && <div className="empty-state"><h2>No matches on the workbench.</h2><p>Try “Python”, “vision”, or a project name.</p><button className="button button-ink" onClick={() => setParams({})}>Clear all filters</button></div>}
+          {!!filtered.length && <div className="pagination"><span>{(page - 1) * pageSize + 1}–{Math.min(page * pageSize, filtered.length)} of {filtered.length}</span><div><button className="icon-button" disabled={page === 1} onClick={() => update('page', String(page - 1))} aria-label="Previous project page"><ArrowLeft size={18}/></button><span>Page {page} / {pageCount}</span><button className="icon-button" disabled={page === pageCount} onClick={() => update('page', String(page + 1))} aria-label="Next project page"><ArrowRight size={18}/></button></div></div>}
+        </>}
       </section>
     </div>
-  );
-};
-
-export default Projects;
+  </main>;
+}

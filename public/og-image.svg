@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+<rect width="1200" height="630" fill="#F4F0E8"/>
+<path d="M64 132H1136M64 529H1136" stroke="#D2CABE"/>
+<text x="64" y="89" fill="#24211D" font-family="Georgia,serif" font-size="36">Afzal Khan <tspan fill="#C9472D">/</tspan></text>
+<text x="1136" y="84" text-anchor="end" fill="#70695F" font-family="Arial,sans-serif" font-size="18">AI ENGINEER &amp; PRODUCT BUILDER</text>
+<text x="60" y="293" fill="#24211D" font-family="Georgia,serif" font-size="94" letter-spacing="-4">Serious systems.</text>
+<text x="60" y="404" fill="#C9472D" font-family="Georgia,serif" font-style="italic" font-size="94" letter-spacing="-4">Restless curiosity.</text>
+<text x="64" y="577" fill="#70695F" font-family="Arial,sans-serif" font-size="19">Engineering, experiments, and a few deep rabbit holes.</text>
+<text x="1136" y="577" text-anchor="end" fill="#24211D" font-family="Arial,sans-serif" font-size="19">afzalkhan.dev</text>
+</svg>

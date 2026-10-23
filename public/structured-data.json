@@ -2,13 +2,14 @@
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "Afzal Khan",
-  "jobTitle": "AI Engineer",
-  "description": "AI engineer with 4+ years across post-training, reward design and evaluation infrastructure — SFT, GRPO/PPO, verifiers, eval harnesses and the platforms that keep them honest.",
+  "jobTitle": "Senior AI Engineer",
+  "description": "Senior AI engineer building post-training workflows, evaluation systems, agentic applications and complete products.",
   "email": "afzaljawadkhan@gmail.com",
   "telephone": "+92 337 9755627",
   "url": "https://afzalkhan.dev",
   "sameAs": [
-    "http://www.linkedin.com/in/afzal-khan-939150192"
+    "https://www.linkedin.com/in/afzal-khan-939150192",
+    "https://github.com/afzalkhanlala1"
   ],
   "address": {
     "@type": "PostalAddress",
@@ -18,14 +19,9 @@
   "alumniOf": {
     "@type": "CollegeOrUniversity",
     "name": "National University of Sciences & Technology (NUST)",
-    "description": "BSc Mechatronics"
+    "description": "BE Mechatronics Engineering"
   },
   "hasCredential": [
-    {
-      "@type": "EducationalOccupationalCredential",
-      "name": "MIT MicroMasters in Statistics & Data Science",
-      "description": "In Progress"
-    },
     {
       "@type": "EducationalOccupationalCredential",
       "name": "McKinsey Forward Program"
@@ -38,7 +34,7 @@
   "worksFor": {
     "@type": "Organization",
     "name": "ClaimbAI",
-    "description": "AI Engineer owning post-training, evaluation infrastructure and production ML systems"
+    "description": "Team lead across post-training, evaluation, agentic systems and AI infrastructure"
   },
   "knowsAbout": [
     "Artificial Intelligence",

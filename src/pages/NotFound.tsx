@@ -1,24 +1,11 @@
-import { useLocation } from "react-router-dom";
-import { useEffect } from "react";
-
-const NotFound = () => {
-  const location = useLocation();
-
-  useEffect(() => {
-    console.error("404 Error: User attempted to access non-existent route:", location.pathname);
-  }, [location.pathname]);
-
-  return (
-    <div className="flex min-h-screen items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">404</h1>
-        <p className="mb-4 text-xl text-gray-600">Oops! Page not found</p>
-        <a href="/" className="text-blue-500 underline hover:text-blue-700">
-          Return to Home
-        </a>
-      </div>
-    </div>
-  );
-};
-
-export default NotFound;
+import { Link } from 'react-router-dom';
+import { ArrowLeft } from 'lucide-react';
+export default function NotFound() {
+  return <main id="main-content" className="not-found shell">
+    <span className="section-kicker">404 / A small detour</span>
+    <h1>Nothing built here. Yet.</h1>
+    <p>The page you’re looking for doesn’t exist. There’s plenty to explore in the project collection.</p>
+    <Link className="button button-ink" to="/">
+      <ArrowLeft size={17} /> Back to the portfolio</Link>
+  </main>;
+}
